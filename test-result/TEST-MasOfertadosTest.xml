@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<testsuite failures="0" time="0.163" errors="0" skipped="0" tests="3" name="MasOfertadosTest">
+  <testcase classname="MasOfertadosTest" name="obtenerTemasMasOfertadosDevuelveUnaListaDeAgrupaciones" time="0.089">
+      </testcase>
+  <testcase classname="MasOfertadosTest" name="obtenerTemasMasOfertadosDevuelveUnaListaDeTemasOrdenadaPorNumeroDeOfertas" time="0.041">
+      </testcase>
+  <testcase classname="MasOfertadosTest" name="obtenerTemasMasOfertadosRespetaMaximoNumeroDeConfiguracion" time="0.033">
+      </testcase>
+</testsuite>

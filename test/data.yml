@@ -5,3 +5,21 @@
 #   email: bob@gmail.com
 #   password: secret
 #   fullname: Bob
+
+Tema(oferta1):
+  titulo: 'mi primer tema'
+  descripcion: 'descripcion numero 1'
+
+Tema(oferta2):
+  titulo: 'mi segundo tema'
+  descripcion: 'descripcion numero 2'
+
+Tema(oferta3):
+  titulo: 'mi segundo tema'
+  descripcion: 'descripcion numero 2 distinta'
+
+Usuario:
+  ofertados: oferta1, oferta2
+
+Usuario:
+  ofertados: oferta3
