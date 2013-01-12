@@ -23,3 +23,21 @@ Usuario:
 
 Usuario:
   ofertados: oferta3
+  
+Busqueda(busqueda1):
+  texto: 'html5'
+  
+Busqueda(busqueda2):
+  texto: 'html5'
+  
+Busqueda(busqueda3):
+  texto: 'html5'
+  
+Busqueda(busqueda4):
+  texto: 'php'
+  
+Busqueda(busqueda5):
+  texto: 'php'
+  
+Busqueda(busqueda6):
+  texto: 'css3'
