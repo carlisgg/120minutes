@@ -55,15 +55,21 @@
 
 <body>
 
-    <header class="container">
+    <header id="header" class="container">
 		
 		<div class="navbar">
 			
-			<div class="span3 offset4">
-				<a style="text-decoration:none;" class="brand" id="brand" href="/" title="120minutes.org" lang="es" hreflang="es">
-					<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-				</a>
-				<p class="hidden-phone">Comparte lo que sabes en 2 horas</p>
+			<div class="span4 offset4">
+				<div class="row">
+					<h1 class="span2 span-center">
+						<a style="text-decoration:none;" class="brand" id="brand" href="/" title="120minutes.org" lang="es" hreflang="es">
+							<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
+						</a>
+					</h1>
+				</div>
+				<div class="row">
+					<h2 id="header-slogan"class="span5 hidden-phone">Comparte lo que sabes en 2 horas</h2>
+				</div>
 			</div>
 		
 			<ul id="login-options" class="nav pull-right">
@@ -169,7 +175,7 @@
 								
 								<div class="row">
 									<div class="span3">
-                                        He olvidado mi <a href="@{Application.lost_password}">contraseña</a>
+                                        <a href="@{Application.lost_password}">He olvidado mi contraseña</a>
 									</div>
 								</div>
 								
@@ -193,15 +199,13 @@
     </header>
 
     <section id="main-section" class="container">
-
-        #{doLayout /}
-
+		#{doLayout /}
     </section>
 
     <footer class="container">
 
         <div class="row row-top-bottom-separator">
-            <div class="span4 offset1">
+            <div class="span4">
                 <a href="#" title="quienes somos">¿Quienes somos?</a>
             </div>
         </div>
