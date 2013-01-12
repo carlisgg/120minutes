@@ -21,19 +21,35 @@
 	float: none;
 }
 
-header, footer {
-	background-color: #f0f0ff;
+body{
+	background-color: white;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header{
+	background-color: green;
+	color: white;
+}
+
+header a{
+	color: white;
+}
+
+.grey-background{
+	background-color: #fafafa;
 }
 
 #main-section{
-	background-color: #f0fafa;
+	
 }
 
-#login-options{
+#login-options, #search-results, .horizontal-list{
 	list-style: none;
+	margin: 0px;
+	padding: 0px;
 }
 
-#login-options li{
+#login-options li, .horizontal-list li{
 	display: inline;
 	float: left;
 	margin-right: 20px;

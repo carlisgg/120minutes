@@ -1,15 +1,90 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Resultados de búsqueda' /}
 
+<div class="row row-top-bottom-separator">
+    <div class="span8 offset2">
+        #{form @Application.search()}
+            <p>Que quieres aprender?</p>
 
-<ul>
-    #{list items:temas, as:'tema'}
+            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
+            <button type="submit" class="btn">
+                Buscar <i class="icon-search"></i>
+            </button>
+        #{/form}
+    </div>
+</div>
 
-        <li>${tema.titulo} / ${tema.descripcion}</li>
-
-    #{/list}
-
-    #{else}
-        <li>No hay ningún usuario que controle de lo que estás buscando</li>
-    #{/else}
-</ul>
+<div class="row rot-top-bottom-separator">
+	<div class="span10 offset1">
+		
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th>Tema</th>
+					<th>Usuario</th>
+					<th>Opciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				#{list items:temas, as:'tema'}
+				<tr>
+					<td>
+						<h4>
+		        			<a href="/">
+		        				${tema.titulo}
+		        			</a>
+		        		</h4>
+		        		<p>
+		        			${tema.descripcion}
+		        		</p>
+					</td>
+					<td>
+						<h4>
+		        			<a href="/">
+		        				Manuel
+		        			</a>
+		        		</h4>
+		        		<div>
+		        			<ul class="horizontal-list">
+		        				<li>
+		        					<i class="icon-star"></i>
+		        				</li>
+		        				<li>
+		        					<i class="icon-star"></i>
+		        				</li>
+		        				<li>
+		        					<i class="icon-star"></i>
+		        				</li>
+		        				<li>
+		        					<i class="icon-star"></i>
+		        				</li>
+		        				<li>
+		        					<i class="icon-star icon-white"></i>
+		        				</li>
+		        			</ul>
+		        		</div>
+					</td>
+					<td>
+						<div>
+		        			<ul class="horizontal-list">
+		        				<li>
+		        					<i class="icon-heart"></i>
+		        				</li>
+		        				<li>
+		        					<i class="icon-map-marker"></i>
+		        				</li>
+		        			</ul>
+		        		</div>
+					</td>
+				</tr>
+				#{/list}
+			</tbody>
+		</table>
+		#{else}	
+	   		<div class="alert">
+  				<button type="button" class="close" data-dismiss="alert">&times;</button>
+  				<strong><i class="icon-warning-sign"></i> Rayos!</strong> No hay ningún usuario que controle de lo que estás buscando :(
+			</div>
+	    #{/else}
+	</div>
+</div>
