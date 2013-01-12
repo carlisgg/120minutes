@@ -4,6 +4,7 @@ lib
 test-result
 logs
 .idea
+.settings
 eclipse
 120minutes.iml
 120minutes.ipr
