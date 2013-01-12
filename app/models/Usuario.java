@@ -38,7 +38,7 @@ public class Usuario extends Model {
     public List<Interes> intereses;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
-    public List<Encuentro> encuentros;
+    public List<Encuentro> encuentrosSolicitados;
 
     public Usuario register() {
         String hashPassword = Codec.hexMD5(password);

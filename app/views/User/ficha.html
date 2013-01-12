@@ -1,0 +1,41 @@
+#{extends 'admin.html' /}
+#{set title:'120minutos - Ficha de usuario' /}
+
+
+${user.id} 
+<h1>${user.username}</h1>
+<h3>${user.descripcion}</h3>
+<p>${user.email}</p>
+<p>${user.creditos} creditos</p>
+<p>Temas ofertados</p>
+	<ul>
+        #{list items:user.temas, as:'tema'}
+       	<li>
+        	<b>${tema.titulo}</b> (${tema.descripcion})
+        </li>
+        #{/list}
+    </ul>
+<p>Temas solicitados</p>
+	<ul>
+        #{list items:user.intereses, as:'interes'}
+       	<li>
+        	${interes.titulo}
+        </li>
+        #{/list}
+    </ul>
+<p>Encuentros como ofertante</p>
+	<ul>
+        #{list items:user.findEncuentrosOfrecidos(), as:'encuentroComoOfertante'}
+       	<li>
+        	<b>${encuentroComoOfertante.tema.titulo}</b> (${encuentroComoOfertante.solicitante.username})
+        </li>
+        #{/list}
+    </ul>
+<p>Encuentros como solicitante</p>
+	<ul>
+        #{list items:user.encuentrosSolicitados, as:'encuentroComoSolicitante'}
+       	<li>
+        	<b>${encuentroComoSolicitante.tema.titulo}</b> (${encuentroComoSolicitante.ofertante.username})
+        </li>
+        #{/list}
+    </ul>
