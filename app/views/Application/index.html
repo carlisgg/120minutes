@@ -20,7 +20,7 @@
         <ul>
         	#{list items:masBuscados, as:'buscado'}
             <li>
-                <a href="#" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
+                <a href="@{Application.search(buscado.titulo)}" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
             </li>
             #{/list}
         </ul>
@@ -30,7 +30,7 @@
         <ul>
             #{list items:masOfertados, as:'ofertado'}
                 <li>
-                    <a href="#" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
+                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
                 </li>
             #{/list}
         </ul>
