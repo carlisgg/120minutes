@@ -16,4 +16,14 @@ public class Application extends Controller {
         render(masOfertados,masBuscados);
     }
 
+    public static void search(String terms) {
+        Busqueda busqueda = new Busqueda();
+        busqueda.texto = terms;
+
+        busqueda.save();
+
+        List<Tema> temas = Tema.findOfertados(terms);
+        render(temas);
+    }
+
 }

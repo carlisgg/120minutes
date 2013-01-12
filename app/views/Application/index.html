@@ -1,30 +1,20 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Inicio' /}
 
-
-<div class="row row-top-bottom-separator">
-    <div class="span4 span-center">
-        <h1>120minutes</h1>
-        <p>Comparte lo que sabes en 2 horas</p>
-    </div>
-</div>
-</div>
-
 <div class="row row-top-bottom-separator">
     <div class="span8 span-center">
-        <form class="form-search">
+        #{form @Application.search()}
             <p>¿Qué quieres aprender?</p>
-            <input id="search-box" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
+
+            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
             <button type="submit" class="btn">
                 Buscar <i class="icon-search"></i>
             </button>
-        </form>
+        #{/form}
     </div>
 </div>
 
-<div class="row row-top-bottom-separator">
-    <hr />
-</div>
+<hr />
 
 <div class="row row-top-bottom-separator">
     <div class="span5 offset1">
@@ -49,6 +39,4 @@
     </div>
 </div>
 
-<div class="row row-top-bottom-separator">
-    <hr />
-</div>
+<hr />

@@ -4,6 +4,9 @@ import play.Play;
 import play.data.validation.Required;
 import play.db.jpa.JPA;
 import play.db.jpa.Model;
+import play.modules.search.Field;
+import play.modules.search.Indexed;
+import play.modules.search.Search;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
@@ -13,9 +16,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Indexed
 public class Tema extends Model {
 
     @Required
+    @Field
     public String titulo;
 
     public String descripcion;
@@ -44,5 +49,10 @@ public class Tema extends Model {
         }
 
         return agrupaciones;
+    }
+
+    public static List<Tema> findOfertados(String terms) {
+        play.modules.search.Query query = Search.search("titulo:(" + terms + ")", Tema.class);
+        return query.fetch();
     }
 }
