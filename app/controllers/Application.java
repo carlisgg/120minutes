@@ -17,7 +17,10 @@ public class Application extends Controller {
     }
 
     public static void search(String terms) {
-        System.out.println("TERMS: " + terms);
+        Busqueda busqueda = new Busqueda();
+        busqueda.texto = terms;
+
+        busqueda.save();
 
         List<Tema> temas = Tema.findOfertados(terms);
         render(temas);
