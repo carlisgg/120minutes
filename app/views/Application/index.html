@@ -14,26 +14,30 @@
     </div>
 </div>
 
-<div class="row row-top-bottom-separator grey-background">
-    <div class="span5 offset1">
-        <h4>Lo más buscado</h4>
-        <ul>
-        	#{list items:masBuscados, as:'buscado'}
-            <li>
-                <a href="@{Application.search(buscado.titulo)}" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
-            </li>
-            #{/list}
-        </ul>
-    </div>
-
-    <div class="span5 offset1">
-        <h4>Lo más ofertado</h4>
-        <ul>
-            #{list items:masOfertados, as:'ofertado'}
-                <li>
-                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
-                </li>
-            #{/list}
-        </ul>
-    </div>
+<div class="row">
+	<div class="span12 grey-background">
+		<div class="row">
+		    <div class="span5 offset1">
+		        <h4>Lo más buscado</h4>
+		        <ul>
+		        	#{list items:masBuscados, as:'buscado'}
+		            <li>
+		                <a href="@{Application.search(buscado.titulo)}" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
+		            </li>
+		            #{/list}
+		        </ul>
+		    </div>
+		
+		    <div class="span5 offset1">
+		        <h4>Lo más ofertado</h4>
+		        <ul>
+		            #{list items:masOfertados, as:'ofertado'}
+		                <li>
+		                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
+		                </li>
+		            #{/list}
+		        </ul>
+		    </div>
+		</div>
+	</div>
 </div>
