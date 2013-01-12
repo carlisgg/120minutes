@@ -71,129 +71,15 @@
 					<h2 id="header-slogan"class="span5 hidden-phone">Comparte lo que sabes en 2 horas</h2>
 				</div>
 			</div>
+
+
+            #{if session.username }
+                #{include 'headers/headerLogin.html'/}
+            #{/if}
+            #{else}
+                #{include 'headers/headerLogout.html'/}
+            #{/else}
 		
-			<ul id="login-options" class="nav pull-right">
-				
-				<li class="hidden-desktop">
-					<a href="#">Registro</a>
-				</li>
-				
-				<li class="dropdown visible-desktop">
-					<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-						Registro <strong class="caret"></strong>
-					</a>
-					<div class="dropdown-menu">
-						<div class="span3">
-							
-							<div class="row">
-								<div class="span3">
-									<h4>Registro</h4>
-								</div>
-							</div>
-
-                                <form action="@{Application.signup()}" method="post">
-								
-								<div class="row">
-									<div class="span3">
-										<label for="reg-name">Usuario</label>
-										<input id="reg-name" type="text" name="usuario.username" placeholder="Nombre de usuario" value="${flash['usuario.username']}" required="required"/>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<label for="reg-email">Correo electr&oacute;nico</label>
-										<input id="reg-email" type="email" name="usuario.email" placeholder="Tu correo electr&oacute;nico" value="${flash['usuario.email']}" required="required"/>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<label for="reg-passwd">Contrase&ntilde;a</label>
-										<input id="reg-passwd" type="password" placeholder="Contrase&ntilde;a" name="usuario.password" required="required"/>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<label for="reg-repasswd">Repetir Contrase&ntilde;a</label>
-										<input id="reg-repasswd" type="password" name="repetirPassword" placeholder="Repetir Contrase&ntilde;a" required="required"/>
-									</div>
-								</div>
-
-								<div class="row">
-									<div class="span3">
-										<button type="submit" class="btn">
-											Registrarme <i class="icon-ok"></i>
-										</button>
-									</div>
-								</div>
-							</form>
-						</div>
-					</div>
-				</li>
-				
-				<li class="hidden-desktop">
-					<a href="#">Login</a>
-				</li>
-				
-				<li class="dropdown visible-desktop">
-					<a class="dropdown-toggle" href="#" data-toggle="dropdown">
-						Login <strong class="caret"></strong>
-					</a>
-					<div class="dropdown-menu">		
-						<div class="span3">
-							
-							<div class="row">
-								<div class="span3">
-									<h4>Login</h4>
-								</div>
-							</div>
-
-
-                            <form action="@{Secure.authenticate()}" class="inner-combo" method="POST">
-								
-								<div class="row">
-									<div class="span3">
-                                        <label for="username">&{'secure.username'}</label>
-                                        <input type="email" name="username" id="username" value="${flash.username}" placeholder="Tu correo electr&oacute;nico" />
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-                                        <label for="password">&{'secure.password'}</label>
-                                        <input type="password" name="password" id="password" placeholder="Contrase&ntilde;a" value="" size="30" />
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-                                        <input type="hidden" name="remember" id="remember" value="true"/>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-                                        <a href="@{Application.lost_password}">He olvidado mi contraseña</a>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<button type="submit" class="btn">
-											Entrar <i class="icon-ok"></i>
-										</button>
-									</div>
-								</div>
-								
-							</form>
-						</div>
-					</div>
-				</li>
-				
-			</ul>
-			
 		</div>
 
     </header>
