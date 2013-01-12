@@ -1,0 +1,9 @@
+tmp/
+modules/
+lib/
+test-result/
+logs/
+.idea/
+eclipse/
+120minutes.iml
+120minutes.ipr
