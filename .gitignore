@@ -1,9 +1,10 @@
-tmp/
-modules/
-lib/
-test-result/
-logs/
-.idea/
-eclipse/
+tmp
+modules
+lib
+test-result
+logs
+.idea
+.settings
+eclipse
 120minutes.iml
 120minutes.ipr
