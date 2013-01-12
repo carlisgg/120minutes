@@ -1,0 +1,39 @@
+#{extends 'main.html' /}
+#{set title:'120minutes - Login' /}
+
+<div id="subheader"></div>
+<div id="content" class="big-padding">
+    <h1 class="nobr">Log In</h1><p class="nobr">o <a href="@{Application.register}">Regístrate</a> si aún no te registraste</p>
+
+    <form action="@{authenticate()}" class="inner-combo" method="POST">
+
+    #{if flash.error}
+        <p class="error">
+        &{flash.error}
+        </p>
+    #{/if}
+    #{if flash.success}
+        <p class="success">
+        &{flash.success}
+        </p>
+    #{/if}
+
+        <div class="form-item" id="username-field">
+            <label for="username">&{'secure.username'}</label>
+            <input type="text" name="username" id="username" value="${flash.username}" />
+        </div>
+        <div class="form-item" id="password-field">
+            <label for="password">&{'secure.password'}</label>
+            <input type="password" name="password" id="password" value="" />
+        </div>
+        <div class="form-item" id="remember-field">
+            <input type="hidden" name="remember" id="remember" value="true"/>
+        </div>
+        <div class="form-item small-text">
+            He olvidado mi <a href="@{Application.lost_password}">contraseña</a>
+        </div>
+        <div class="form-item" id="signin-field">
+            <input type="submit" class="big-button" id="signin" value="&{'secure.signin'}" />
+        </div>
+    </form>
+</div>

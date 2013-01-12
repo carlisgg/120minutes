@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+#{set title:'120minutos - Registro' /}
+
+<div id="subheader"></div>
+<div id="content" class="big-padding">
+    <h1 class="nobr">Registrarse</h1><p class="nobr">o <a href="@{Secure.login}">Entrar</a></p>
+    <p>Regístrate en un solo paso, una vez que entres por primera vez, podrás completar toda la información de tu perfil.</p>
+    <form action="@{Application.signup()}" class="inner-combo">
+
+    #{ifErrors}
+        <p class="error">
+        ${errors[0]}
+        </p>
+    #{/ifErrors}
+
+
+        <div class="form-item">
+            <label>Usuario</label>
+            <input type="text" name="usuario.username" value="${flash['usuario.username']}" size="35"></input>
+        </div>
+        <div class="form-item">
+            <label>Correo electrónico</label>
+            <input type="text" name="usuario.email" id="email" value="${flash['usuario.email']}" size="35"></input>
+        </div>
+        <div class="form-item">
+            <label>Contraseña</label>
+            <input type="password" name="usuario.password"></input>
+        </div>
+        <div class="form-item">
+            <label>Repetir Contraseña</label>
+            <input type="password" name="repetirPassword"></input>
+        </div>
+
+        <input type="submit" class="big-button" value="Registrarme"></input>
+
+    </form>
+</div>
