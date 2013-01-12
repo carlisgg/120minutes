@@ -40,11 +40,6 @@ public class Usuario extends Model {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
     public List<Encuentro> encuentros;
 
-    public static Usuario getUsuarioByName(String username) {
-    	JPAQuery query = find("byUsername", username);
-    	return query.first();
-    }
-
     public Usuario register() {
         String hashPassword = Codec.hexMD5(password);
         password = hashPassword;
@@ -96,4 +91,5 @@ public class Usuario extends Model {
             return Usuario.find("email", email).first() == null;
         }
     }
+
 }

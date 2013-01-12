@@ -90,5 +90,11 @@ public class Application extends Controller {
             notFound("El código de confirmación no es válido");
         }
     }
+    
+    public static void user(String id) {
+        Usuario user = Usuario.findById(Long.valueOf(id));
+        
+        render(user);
+    }
 
 }
