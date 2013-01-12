@@ -1,5 +1,7 @@
 package models;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -26,4 +28,13 @@ public class Encuentro extends Model {
 	public Estado estadoOfertante;
     public Estado estadoSolicitante;
 
+    public static Encuentro crearEncuentro(Long idTema) {
+    	Encuentro encuentro = new Encuentro();
+    	encuentro.tema = Tema.findById(idTema);
+    	encuentro.ofertante = encuentro.tema.ofertante;
+    	encuentro.solicitante = null;
+    	
+    	encuentro.save();
+    	return encuentro;
+    }
 }

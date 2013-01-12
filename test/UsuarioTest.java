@@ -16,7 +16,7 @@ public class UsuarioTest extends UnitTest {
 
     @Test
     public void obtenerUnUsuarioDevuelveLosDatosDelUsuario() {
-        Usuario usuario = Usuario.getUsuarioByName("Juancho");
+        Usuario usuario = Usuario.findById(((Usuario)Usuario.findAll().get(0)).id);
 
         assertNotNull(usuario);
         assertEquals("Juancho",usuario.username);

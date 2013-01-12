@@ -29,8 +29,4 @@ public class Usuario extends Model {
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solicitante")
     public List<Encuentro> encuentrosComoSolicitante;
 
-    public static Usuario getUsuarioByName(String username) {
-    	JPAQuery query = find("byUsername", username);
-    	return query.first();
-    }
 }
