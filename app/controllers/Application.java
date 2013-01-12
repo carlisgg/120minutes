@@ -14,4 +14,11 @@ public class Application extends Controller {
         render(masOfertados);
     }
 
+    public static void search(String terms) {
+        System.out.println("TERMS: " + terms);
+
+        List<Tema> temas = Tema.findOfertados(terms);
+        render(temas);
+    }
+
 }
