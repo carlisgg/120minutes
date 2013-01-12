@@ -20,19 +20,20 @@ public class Encuentro extends Model {
 	public Usuario solicitante;
 
 	enum Estado {
-		//Para los ofertantes las transiciones serán: EnCurso -> Realizado -> Finalizado;
-		//Para los solicitantes las transiciones serán: EnCurso -> Realizado -> Votado -> Finalizado;
-	    EnCurso, Realizado, Votado, Finalizado;
+		//Solicitado---|--> Aceptado (por el ofertante) ---> Realizado ---> Votado ---> Finalizado
+		//             |--> Rechazado (por el ofertante) 
+		//             |--> Cancelado (por el solicitante)
+	    Solicitado, Rechazado, Aceptado, Cancelado, Realizado, Votado, Finalizado;
 	    }
 	
 	public Estado estadoOfertante;
     public Estado estadoSolicitante;
 
-    public static Encuentro crearEncuentro(Long idTema) {
+    public static Encuentro crearEncuentro(Long idTema, Usuario solicitante) {
     	Encuentro encuentro = new Encuentro();
     	encuentro.tema = Tema.findById(idTema);
     	encuentro.ofertante = encuentro.tema.ofertante;
-    	encuentro.solicitante = null;
+    	encuentro.solicitante = solicitante;
     	
     	encuentro.save();
     	return encuentro;

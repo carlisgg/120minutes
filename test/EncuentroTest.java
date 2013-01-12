@@ -19,7 +19,8 @@ public class EncuentroTest extends UnitTest {
     @Test
     public void crearUnEncuentroGuardaCorrectamenteElEncuentro() {
     	Tema tema = (Tema) Tema.findAll().get(0);
-    	Encuentro encuentro = Encuentro.crearEncuentro(tema.id);
+    	Usuario usuario = Usuario.find("byUsername", "usuario2").first();
+    	Encuentro encuentro = Encuentro.crearEncuentro(tema.id,usuario);
 
         assertNotNull(encuentro);
         assertEquals(encuentro,Encuentro.findById(encuentro.id));
