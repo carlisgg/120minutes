@@ -25,12 +25,12 @@ public class Tema extends Model {
 
     public static List<Agrupacion> getMasOfertados() {
 
-        int numMaxOfertados = Integer.valueOf(Play.configuration.getProperty("application.num_max_ofertados"));
+        int numMasOfertados = Integer.valueOf(Play.configuration.getProperty("application.num_mas_ofertados"));
 
         Query query = JPA.em().createNativeQuery(
                 "select titulo, count(titulo) as repeticion from tema group by titulo order by repeticion desc");
 
-        List<Object[]> results = query.setMaxResults(numMaxOfertados).getResultList();
+        List<Object[]> results = query.setMaxResults(numMasOfertados).getResultList();
         List<Agrupacion> agrupaciones = new ArrayList<Agrupacion>();
 
         for (Object[] result : results) {
