@@ -23,7 +23,7 @@
 
 body{
 	background-color: white;
-	font-family: 'Open Sans', sans-serif;
+	font-family: 'Open Sans Condensed', sans-serif;
 	color: #314351;
 }
 
@@ -33,6 +33,8 @@ header{
 }
 
 #header-slogan {
+	font-weight: 300;
+	text-transform: uppercase;
 	color: white;
 	font-size: 20px;
 }
@@ -43,6 +45,16 @@ header{
 
 #main-section{
 	
+}
+
+#search-title{
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+.home-list {
+	list-style: circle;
+	padding-left: 50px;
 }
 
 #login-options, #search-results, .horizontal-list{
