@@ -3,6 +3,8 @@ modules
 lib
 test-result
 logs
+out
+db
 .idea
 .settings
 .project
