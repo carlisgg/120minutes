@@ -5,6 +5,7 @@ test-result
 logs
 out
 db
+data
 .idea
 .settings
 .project
