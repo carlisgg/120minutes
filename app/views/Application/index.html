@@ -30,18 +30,11 @@
     <div class="span5 offset1">
         <h4>Lo más buscado</h4>
         <ul>
+        	#{list items:masBuscados, as:'buscado'}
             <li>
-                <a href="#" title="quienes somos">Punto de cruz con hilos de colores</a>
+                <a href="#" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
             </li>
-            <li>
-                <a href="#" title="quienes somos">HTML5</a>
-            </li>
-            <li>
-                <a href="#" title="quienes somos">Programación en JAVA</a>
-            </li>
-            <li>
-                <a href="#" title="quienes somos">Usar vectores en ilustrator</a>
-            </li>
+            #{/list}
         </ul>
     </div>
     <div class="span5 offset1">
