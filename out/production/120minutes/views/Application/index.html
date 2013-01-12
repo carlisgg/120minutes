@@ -1,37 +1,47 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Inicio' /}
 
+
 <div class="row row-top-bottom-separator">
-    <div class="span8 offset2">
+    <div class="span4 span-center">
         <h1>120minutes</h1>
         <p>Comparte lo que sabes en 2 horas</p>
     </div>
 </div>
+</div>
 
 <div class="row row-top-bottom-separator">
     <div class="span8 span-center">
-        #{form @Application.search()}
+        <form class="form-search">
             <p>¿Qué quieres aprender?</p>
-
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
+            <input id="search-box" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
             <button type="submit" class="btn">
                 Buscar <i class="icon-search"></i>
             </button>
-        #{/form}
+        </form>
     </div>
 </div>
 
-<hr />
+<div class="row row-top-bottom-separator">
+    <hr />
+</div>
 
 <div class="row row-top-bottom-separator">
     <div class="span5 offset1">
         <h4>Lo más buscado</h4>
         <ul>
-        	#{list items:masBuscados, as:'buscado'}
             <li>
-                <a href="#" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
+                <a href="#" title="quienes somos">Punto de cruz con hilos de colores</a>
             </li>
-            #{/list}
+            <li>
+                <a href="#" title="quienes somos">HTML5</a>
+            </li>
+            <li>
+                <a href="#" title="quienes somos">Programación en JAVA</a>
+            </li>
+            <li>
+                <a href="#" title="quienes somos">Usar vectores en ilustrator</a>
+            </li>
         </ul>
     </div>
     <div class="span5 offset1">
@@ -46,4 +56,6 @@
     </div>
 </div>
 
-<hr />
+<div class="row row-top-bottom-separator">
+    <hr />
+</div>

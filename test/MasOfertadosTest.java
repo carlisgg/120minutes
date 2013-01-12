@@ -1,12 +1,14 @@
-import models.Tema;
+import java.util.List;
+
 import models.Agrupacion;
+import models.Tema;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import play.Play;
 import play.test.Fixtures;
 import play.test.UnitTest;
-
-import java.util.List;
 
 public class MasOfertadosTest extends UnitTest {
 
@@ -39,10 +41,13 @@ public class MasOfertadosTest extends UnitTest {
 
     @Test
     public void obtenerTemasMasOfertadosRespetaMaximoNumeroDeConfiguracion() {
-        Play.configuration.setProperty("application.num_max_ofertados", "1");
+    	String value = Play.configuration.getProperty("application.num_mas_ofertados");
+        Play.configuration.setProperty("application.num_mas_ofertados", "1");
         List<Agrupacion> masOfertados = Tema.getMasOfertados();
 
         assertTrue(masOfertados.size() == 1);
+        
+        Play.configuration.setProperty("application.num_mas_ofertados", value);
     }
 
 

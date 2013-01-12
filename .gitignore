@@ -5,6 +5,9 @@ test-result
 logs
 .idea
 .settings
+.project
+bin
+.classpath
 eclipse
 120minutes.iml
 120minutes.ipr

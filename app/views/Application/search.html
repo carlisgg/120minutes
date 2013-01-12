@@ -1,0 +1,11 @@
+#{extends 'main.html' /}
+#{set title:'120minutos - Inicio' /}
+
+
+<ul>
+    #{list items:temas, as:'tema'}
+
+        <li>${tema.titulo} / ${tema.descripcion}</li>
+
+    #{/list}
+</ul>

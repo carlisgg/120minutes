@@ -1,0 +1,4 @@
+01-12 12:07:30 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TEMA" no encontrada
+Table "TEMA" not found; SQL statement:
+alter table Tema drop constraint FK27B7E51DB8FA98 [42102-166]
