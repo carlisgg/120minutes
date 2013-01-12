@@ -5,6 +5,7 @@ test-result
 logs
 .idea
 .settings
+.project
 eclipse
 120minutes.iml
 120minutes.ipr
