@@ -47,15 +47,11 @@
     <div class="span5 offset1">
         <h4>Lo más ofertado</h4>
         <ul>
-            <li>
-                <a href="#" title="quienes somos">Fotografía (25)</a>
-            </li>
-            <li>
-                <a href="#" title="quienes somos">HTML5(18)</a>
-            </li>
-            <li>
-                <a href="#" title="quienes somos">COCKTELERÍA (15)</a>
-            </li>
+            #{list items:masOfertados, as:'ofertado'}
+                <li>
+                    <a href="#" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
+                </li>
+            #{/list}
         </ul>
     </div>
 </div>
