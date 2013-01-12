@@ -3,3 +3,4 @@
 require:
     - play
     - play -> search 2.0
+    - play -> secure
