@@ -1,3 +1,11 @@
 # You can specialize this file for each language.
 # For example, for French create a messages.fr file
 #
+
+secure.title=
+secure.username=email
+secure.password=contraseña
+secure.remember=Recuérdame en este equipo
+secure.signin=Entrar
+secure.error=Oops, revisa que tu correo esté confirmado y tu password sea correcto.
+secure.logout=Saliste de 120minutos

@@ -26,15 +26,18 @@ public class Tema extends Model {
     public String descripcion;
 
     @ManyToOne
-    public Usuario propietario;
+    public Usuario ofertante;
+    
+    @ManyToOne
+    public Usuario solicitante;
 
     public static List<Agrupacion> getMasOfertados() {
 
         int numMasOfertados = Integer.valueOf(Play.configuration.getProperty("application.num_mas_ofertados"));
 
         Query query = JPA.em().createNativeQuery(
-                "select titulo, count(titulo) as repeticion from tema group by titulo order by repeticion desc");
-
+                "select titulo, count(titulo) as repeticion from tema where ofertante_id is not null group by titulo order by repeticion desc");
+        
         List<Object[]> results = query.setMaxResults(numMasOfertados).getResultList();
         List<Agrupacion> agrupaciones = new ArrayList<Agrupacion>();
 

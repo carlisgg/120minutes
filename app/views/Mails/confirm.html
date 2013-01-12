@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Confirma tu cuenta</title>
+</head>
+<body>
+<img src="@@{'/public/images/favicon.png'}"/>
+<p>Hola ${user.username},<br/>
+    Por favor, confirma la activación de tu cuenta pulsando en el siguiente enlace <a href="@@{Application.confirm(user.needConfirmation)}">@@{Application.confirm(user.needConfirmation)}</a>.
+</p>
+
+<p>Gracias por usar <a href="http://120minutos.es">120minutos</a></p>
+</body>
+</html>

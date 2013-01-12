@@ -4,13 +4,19 @@
 
 # Home page
 GET     /                                       Application.index
-GET     /application/search/{terms}                         Application.search
+GET     /application/search/{terms}             Application.search
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 
 # Map static resources from the /app/public folder to the /public path
 GET     /public/                                staticDir:public
+
+# App pages
+GET		/confirm/{uuid}							Application.confirm
+
+# Import Secure routes
+*       /                                       module:secure
 
 # Catch all
 *       /{controller}/{action}                  {controller}.{action}

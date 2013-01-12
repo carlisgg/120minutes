@@ -84,52 +84,37 @@
 									<h4>Registro</h4>
 								</div>
 							</div>
-							
-							<form action="#" method="post">
+
+                                <form action="@{Application.signup()}" method="post">
 								
 								<div class="row">
 									<div class="span3">
-										<label for="reg-name">Nombre</label>
-										<input id="reg-name" type="text" placeholder="Nombre Completo"  required="required"/>
+										<label for="reg-name">Usuario</label>
+										<input id="reg-name" type="text" name="usuario.username" placeholder="Nombre de usuario" value="${flash['usuario.username']}" required="required"/>
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
 										<label for="reg-email">Correo electr&oacute;nico</label>
-										<input id="reg-email" type="email" placeholder="Tu correo electr&oacute;nico"  required="required"/>
+										<input id="reg-email" type="email" name="usuario.email" placeholder="Tu correo electr&oacute;nico" value="${flash['usuario.email']}" required="required"/>
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
 										<label for="reg-passwd">Contrase&ntilde;a</label>
-										<input id="reg-passwd" type="password" placeholder="Contrase&ntilde;a" required="required"/>
+										<input id="reg-passwd" type="password" placeholder="Contrase&ntilde;a" name="usuario.password" required="required"/>
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
 										<label for="reg-repasswd">Repetir Contrase&ntilde;a</label>
-										<input id="reg-repasswd" type="password" placeholder="Repetir Contrase&ntilde;a" required="required"/>
+										<input id="reg-repasswd" type="password" name="repetirPassword" placeholder="Repetir Contrase&ntilde;a" required="required"/>
 									</div>
 								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<label for="reg-repasswd">Repetir Contrase&ntilde;a</label>
-										<input id="reg-repasswd" type="password" placeholder="Repetir Contrase&ntilde;a" required="required"/>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="span3">
-										<label class="checkbox">
-											<input type="checkbox" name="termsCheckbox" required="required"> Acepto las <a href="#">condiciones legales</a>
-										</label>
-									</div>
-								</div>
-								
+
 								<div class="row">
 									<div class="span3">
 										<button type="submit" class="btn">
@@ -158,34 +143,33 @@
 									<h4>Login</h4>
 								</div>
 							</div>
-							
-							<form action="index.html" method="post">
+
+
+                            <form action="@{Secure.authenticate()}" class="inner-combo" method="POST">
 								
 								<div class="row">
 									<div class="span3">
-										<label for="login-email">Correo electr&oacute;nico</label>
-										<input id="login-email" type="email" placeholder="Tu correo electr&oacute;nico" />
+                                        <label for="username">&{'secure.username'}</label>
+                                        <input type="email" name="username" id="username" value="${flash.username}" placeholder="Tu correo electr&oacute;nico" />
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
-										<label for="login-passwd">Contrase&ntilde;a</label>
-										<input id="login-passwd" type="password" placeholder="Contrase&ntilde;a" size="30" />
+                                        <label for="password">&{'secure.password'}</label>
+                                        <input type="password" name="password" id="password" placeholder="Contrase&ntilde;a" value="" size="30" />
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
-										<label class="checkbox">
-											<input type="checkbox" required="required"> Recordar contraseña
-										</label>
+                                        <input type="hidden" name="remember" id="remember" value="true"/>
 									</div>
 								</div>
 								
 								<div class="row">
 									<div class="span3">
-										<a href="#">He olvidado mi contrase&ntilde;a</a>
+                                        He olvidado mi <a href="@{Application.lost_password}">contraseña</a>
 									</div>
 								</div>
 								
