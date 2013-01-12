@@ -1,6 +1,6 @@
-<html>
+#{extends 'main.html' /}
+#{set title:'120minutos - Ficha de usuario' /}
 
-<body>
 
 ${user.id} 
 <h1>${user.username}</h1>
@@ -9,23 +9,23 @@ ${user.id}
 <p>${user.creditos} creditos</p>
 <p>Temas ofertados</p>
 	<ul>
-        #{list items:user.ofertados, as:'temaOfertado'}
+        #{list items:user.temas, as:'tema'}
        	<li>
-        	<b>${temaOfertado.titulo}</b> (${temaOfertado.descripcion})
+        	<b>${tema.titulo}</b> (${tema.descripcion})
         </li>
         #{/list}
     </ul>
 <p>Temas solicitados</p>
 	<ul>
-        #{list items:user.solicitados, as:'temaSolicitado'}
+        #{list items:user.intereses, as:'interes'}
        	<li>
-        	${temaSolicitado.titulo}
+        	${interes.titulo}
         </li>
         #{/list}
     </ul>
 <p>Encuentros como ofertante</p>
 	<ul>
-        #{list items:user.encuentrosComoOfertante, as:'encuentroComoOfertante'}
+        #{list items:user.findEncuentrosOfrecidos(), as:'encuentroComoOfertante'}
        	<li>
         	<b>${encuentroComoOfertante.tema.titulo}</b> (${encuentroComoOfertante.solicitante.username})
         </li>
@@ -33,11 +33,9 @@ ${user.id}
     </ul>
 <p>Encuentros como solicitante</p>
 	<ul>
-        #{list items:user.encuentrosComoSolicitante, as:'encuentroComoSolicitante'}
+        #{list items:user.encuentrosSolicitados, as:'encuentroComoSolicitante'}
        	<li>
         	<b>${encuentroComoSolicitante.tema.titulo}</b> (${encuentroComoSolicitante.ofertante.username})
         </li>
         #{/list}
     </ul>
-</body>
-</html>
