@@ -6,6 +6,9 @@
 GET     /                                       Application.index
 GET     /application/search/{terms}             Application.search
 
+# User page
+GET     /application/user/{id}             		Application.user
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

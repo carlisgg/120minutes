@@ -31,22 +31,14 @@ public class Usuario extends Model {
 
     public String needConfirmation;
 	
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "ofertante")
-    public List<Tema> ofertados;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "experto")
+    public List<Tema> temas;
     
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solicitante")
-    public List<Tema> solicitados;
-    
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "ofertante")
-    public List<Encuentro> encuentrosComoOfertante;
-    
-    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "solicitante")
-    public List<Encuentro> encuentrosComoSolicitante;
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
+    public List<Interes> intereses;
 
-    public static Usuario getUsuarioByName(String username) {
-    	JPAQuery query = find("byUsername", username);
-    	return query.first();
-    }
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
+    public List<Encuentro> encuentros;
 
     public Usuario register() {
         String hashPassword = Codec.hexMD5(password);
@@ -90,9 +82,14 @@ public class Usuario extends Model {
         return savedUser;
     }
 
+    public List<Encuentro> findEncuentrosOfrecidos() {
+        return Encuentro.find("from Encuentro where tema.experto.id = ?", id).fetch();
+    }
+
     static class MailUniqueCheck extends Check {
         public boolean isSatisfied(Object usuario, Object email) {
             return Usuario.find("email", email).first() == null;
         }
     }
+
 }

@@ -16,16 +16,15 @@ public class UsuarioTest extends UnitTest {
 
     @Test
     public void obtenerUnUsuarioDevuelveLosDatosDelUsuario() {
-        Usuario usuario = Usuario.getUsuarioByName("Juancho");
+        Usuario usuario = Usuario.findById(((Usuario)Usuario.findAll().get(0)).id);
 
         assertNotNull(usuario);
         assertEquals("Juancho",usuario.username);
         assertEquals("Soy Juancho y me encantan el html, los apalabrados, la fotografía y los cocteles. Vivo en a coruña pero me desplazo todas las semanas a lugo",usuario.descripcion);
         assertEquals(Long.valueOf(2L),usuario.creditos);
-        assertEquals(2,usuario.ofertados.size());
-        assertEquals(3,usuario.solicitados.size());
-        assertEquals(1,usuario.encuentrosComoOfertante.size());
-        assertEquals(0,usuario.encuentrosComoSolicitante.size());
-        
+        assertEquals(2,usuario.temas.size());
+        assertEquals(3,usuario.intereses.size());
+        assertEquals(1,usuario.findEncuentrosOfrecidos().size());
+
     }
 }
