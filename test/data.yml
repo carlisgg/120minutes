@@ -1,28 +1,49 @@
 # you describe your data using the YAML notation here
 # and then load them using Fixtures.load("data.yml")
 
-# User(bob):
-#   email: bob@gmail.com
-#   password: secret
-#   fullname: Bob
+Usuario(usuario1):
+  username: 'Juancho'
+  descripcion: 'Soy Juancho y me encantan el html, los apalabrados, la fotografía y los cocteles. Vivo en a coruña pero me desplazo todas las semanas a lugo'
+  creditos: 2
+
+Usuario(usuario2):
+  username: 'usuario2'
+  descripcion: 'descripción usuario 2'
+  creditos: 1
 
 Tema(oferta1):
   titulo: 'mi primer tema'
   descripcion: 'descripcion numero 1'
+  ofertante: usuario1
 
 Tema(oferta2):
   titulo: 'mi segundo tema'
   descripcion: 'descripcion numero 2'
+  ofertante: usuario1
 
 Tema(oferta3):
   titulo: 'mi segundo tema'
   descripcion: 'descripcion numero 2 distinta'
+  ofertante: usuario2
+  
+Tema(solicitud1):
+  titulo: 'Ajax'
+  solicitante: usuario1
+  
+Tema(solicitud2):
+  titulo: 'jQuery'
+  solicitante: usuario1
 
-Usuario:
-  ofertados: oferta1, oferta2
-
-Usuario:
-  ofertados: oferta3
+Tema(solicitud3):
+  titulo: 'Google docs'
+  solicitante: usuario1
+  
+Encuentro(encuentro1):
+  tema: oferta1
+  ofertante: usuario1
+  solicitante: usuario2
+  estadoOfertante: 'EnCurso'
+  estadoSolicitante: 'EnCurso'
   
 Busqueda(busqueda1):
   texto: 'html5'
