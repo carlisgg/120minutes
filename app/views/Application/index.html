@@ -3,7 +3,7 @@
 
 <div class="row">
 	<div class="span12 grey-background">
-		<div class="row">
+		<div class="row row-top-separator row-extra-bottom-separator">
 		    <div class="span5 offset1">
 		        <h4 class="position-ico ico-mas-buscados condensed">
 		        	Lo más buscado
@@ -11,7 +11,7 @@
 		        <ul class="home-list">
 		        	#{list items:masBuscados, as:'buscado'}
 		            <li>
-		                <a href="@{Application.search(buscado.titulo)}" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
+		                <a href="@{Application.search(buscado.titulo)}" title="${buscado.titulo}">${buscado.titulo}</a>
 		            </li>
 		            #{/list}
 		        </ul>
@@ -24,7 +24,7 @@
 		        <ul class="home-list">
 		            #{list items:masOfertados, as:'ofertado'}
 		                <li>
-		                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
+		                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="${ofertado.titulo}">${ofertado.titulo} (${ofertado.repeticiones})</a>
 		                </li>
 		            #{/list}
 		        </ul>
