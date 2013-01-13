@@ -25,6 +25,7 @@ public class Application extends Controller {
     public static void search(String terms) {
         Busqueda busqueda = new Busqueda();
         busqueda.texto = terms;
+        params.flash();
 
         busqueda.save();
 
