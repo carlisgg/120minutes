@@ -62,30 +62,38 @@
 	<header id="header">
 	    <div class="container">
 			
+			#{if request.action=='Application.index'}
 			<div class="navbar">
+			#{/if}
+			#{else}
+			<div class="navbar navbar-interiores">
+			#{/else}
+				<div class="row">
+					<div class="span11 offset1">
+					#{if session.username }
+		                #{include 'headers/headerLogin.html'/}
+		            #{/if}
+		            #{else}
+		                #{include 'headers/headerLogout.html'/}
+		            #{/else}
+		            </div>
+				</div>
 				<div class="row">
 					
 					#{if request.action=='Application.index'}
-					<div class="span1 visible-phone">
-						<a class="brand" id="brand" href="/" title="120minutes.org">
-							<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-						</a>
-					</div>
-					<div class="span3 offset4 hidden-phone">
-						<div class="row">
-							<h2 id="header-slogan"class="span3 span-center">
-								<a class="brand" id="brand" href="/" title="120minutes.org">
-									<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-									<span class="hidden-phone color-white">
-										Comparte lo que sabes en 2 horas
-									</span>
-								</a>
-							</h2>
-						</div>
+					<div class="span11 offset1">
+						<h2 id="header-slogan">
+							<a class="brand" id="brand" href="/" title="120minutes.org">
+								<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
+								<span class="hidden-phone color-white">
+									Comparte lo que sabes en 2 horas
+								</span>
+							</a>
+						</h2>
 					</div>
 					#{/if}
 					#{else}
-					<div class="span7">
+					<div class="span10 offset1">
 						<h2 id="header-slogan">
 							<a class="brand" id="brand" href="/" title="120minutes.org">
 								<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
@@ -97,13 +105,6 @@
 					</div>
 					#{/else}
 		
-		            #{if session.username }
-		                #{include 'headers/headerLogin.html'/}
-		            #{/if}
-		            #{else}
-		                #{include 'headers/headerLogout.html'/}
-		            #{/else}
-		            
 	            </div>
 			
 			</div>

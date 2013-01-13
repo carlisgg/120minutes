@@ -11,6 +11,10 @@
 	margin-bottom: 20px;
 }
 
+.row-extra-bottom-separator{
+    margin-bottom: 60px;
+}
+
 .row-top-bottom-separator {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -28,7 +32,7 @@ body{
 	color: #314351;
 }
 
-#main-section h4.condensed {
+#main-section h4.condensed, #search-section h4.condensed {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
     font-size: 23px;
@@ -40,11 +44,20 @@ header{
 	background-repeat: repeat;
 }
 
+header h2 span, header a{
+	text-transform: none;
+	text-shadow: none !important;
+}
+
 #header-slogan {
 	font-weight: 300;
 	text-transform: uppercase;
 	color: white;
 	font-size: 20px;
+}
+
+.navbar-interiores{
+	margin:0px;
 }
 
 .grey-background{
@@ -104,13 +117,15 @@ header{
     color:  #ff6600;
 }
 
+.home-list li {
+    margin-bottom: 4px;
+}
+
 .arrowli li{
 	list-style: url("../images/ico-arrow.png");
 	list-style-type: none;
 	padding-bottom: 5px;
 	
-}
-
 #menu-options {
     font-size: 0.9em;
 }
@@ -205,4 +220,8 @@ header{
 
 .color-orange{
 	color: #f60;
+}
+
+.separador-acciones {
+    margin-top: 4px;
 }

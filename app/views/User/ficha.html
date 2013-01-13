@@ -89,11 +89,13 @@
 							        		</h5>
 										</td>
 										<td>
-											#{if (encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Solicitado)}
+                                            <h5></h5>
+
+                                            #{if (encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Solicitado)}
 												<a href="@{Admin.confirmarEncuentro(encuentroComoOfertante.id)}">
 													<i class="icon-ok"></i> Confirmar
 												</a>
-												<br />
+												<div class="separador-acciones"></div>
 												<a href="@{Admin.rechazarEncuentro(encuentroComoOfertante.id)}">
 													<i class="icon-remove"></i> Rechazar
 												</a>
@@ -198,7 +200,7 @@
 										<td>
 											#{if (encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Solicitado)}
 											        <span class="label label-info">Esperando confirmacion</span>
-											        <br />
+                                                    <div class="separador-acciones"></div>
 											        <a href="@{Admin.cancelarEncuentro(encuentroComoSolicitante.id)}">
 											        	<i class="icon-remove"></i> Cancelar
 											        </a>
@@ -293,11 +295,13 @@
 							        			${tema.descripcion}
 							        		</p>
 										</td>
+                                    #{if user.email == session.username}
 										<td>
 											<a href="#"><i class="icon-remove"></i> Eliminar</a>
-											<br>
+                                            <div class="separador-acciones"></div>
 											<a href="#"><i class="icon-pencil"></i> Editar</a>
 										</td>
+                                    #{/if}
 									</tr>
 									#{/list}
                                     #{if user.email == session.username}
