@@ -24,7 +24,7 @@
 		
 		<div class="row">
 			<div class="span2 offset1">
-				<img src="https://secure.gravatar.com/avatar/131ffcf8d544a449dde8516cb4067aac?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="img-polaroid">
+				<img src="@{'/public/images/recurso-foto-ficha.gif'}" class="img-polaroid">
 			</div>
 			<div class="span8">
 				<h4>${user.username}</h4>
@@ -38,8 +38,8 @@
 			<div class="span10 offset1">
 				<div class="tabbable"> <!-- Only required for left/right tabs -->
 					<ul class="nav nav-tabs">
-						<li>
-							<a href="#ense�ando" data-toggle="tab">Estoy ense&ntilde;ando</a>
+						<li class="active">
+							<a href="#ensenando" data-toggle="tab">Estoy ense&ntilde;ando</a>
 						</li>
 						<li>
 							<a href="#aprendiendo" data-toggle="tab">Estoy aprendiendo</a>
@@ -47,12 +47,12 @@
 						<li>
 							<a href="#puedo" data-toggle="tab">Puedo ense&ntilde;ar</a>
 						</li>
-						<li class="active">
+						<li>
 							<a href="#quiero" data-toggle="tab">Quiero aprender</a>
 						</li>
 					</ul>
 					<div class="tab-content profile-tab-content">
-						<div class="tab-pane active" id="ense�ando">
+						<div class="tab-pane active" id="ensenando">
 							<table class="table table-condensed">
 								<thead>
 									<tr>
