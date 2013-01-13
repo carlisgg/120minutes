@@ -1,23 +1,24 @@
-<ul id="login-options" class="nav pull-right">
+<div class="span5">
+<ul id="menu-options" class="nav pull-right">
+
+	<li>
+		<a href="/">
+			<i class="icon-cog icon-white"></i> Como funciona
+		</a>
+	</li>		
 
     <li class="hidden-desktop">
-        <a href="#">Registro</a>
+        <a href="#" class="login-option">Registro</a>
     </li>
 
     <li class="dropdown visible-desktop">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        <a class="login-option dropdown-toggle" href="#" data-toggle="dropdown">
             Registro <strong class="caret"></strong>
         </a>
         <div class="dropdown-menu">
             <div class="span3">
 
-                <div class="row">
-                    <div class="span3">
-                        <h4>Registro</h4>
-                    </div>
-                </div>
-
-                    <form action="@{Application.signup()}" method="post">
+                <form action="@{Application.signup()}" method="post">
 
                     <div class="row">
                         <div class="span3">
@@ -46,7 +47,15 @@
                             <input id="reg-repasswd" type="password" name="repetirPassword" placeholder="Repetir Contrase&ntilde;a" required="required"/>
                         </div>
                     </div>
-
+					
+					<div class="row">
+                        <div class="span3">
+                            <label class="checkbox">
+								<input type="checkbox" name="termsCheckbox" required="required"> Acepto las <a href="#">condiciones legales</a>
+							</label>
+                        </div>
+                    </div>
+					
                     <div class="row">
                         <div class="span3">
                             <button type="submit" class="btn">
@@ -60,22 +69,15 @@
     </li>
 
     <li class="hidden-desktop">
-        <a href="#">Login</a>
+        <a href="#" class="login-option">Login</a>
     </li>
 
     <li class="dropdown visible-desktop">
-        <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+        <a class="login-option dropdown-toggle" href="#" data-toggle="dropdown">
             Login <strong class="caret"></strong>
         </a>
         <div class="dropdown-menu">
             <div class="span3">
-
-                <div class="row">
-                    <div class="span3">
-                        <h4>Login</h4>
-                    </div>
-                </div>
-
 
                 <form action="@{Secure.authenticate()}" class="inner-combo" method="POST">
 
@@ -119,4 +121,4 @@
     </li>
 
 </ul>
-
+</div>

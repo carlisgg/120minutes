@@ -1,15 +1,35 @@
 package controllers;
 
-import notifiers.Mails;
+import java.util.List;
+
 import models.Encuentro;
+import models.Interes;
 import models.Tema;
 import models.Usuario;
+import notifiers.Mails;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 public class Admin extends Controller {
 
     public static void index() {
-        render();
+        String username = Security.connected();
+        System.out.println(username);
+        Usuario user = Usuario.find("byEmail", username).first();
+
+        List<Tema> temasDeInteres = user.findTemasDeInteres();
+        render(temasDeInteres);
+    }
+
+    public static void add_interes(@Valid Interes interes) {
+
+        flash.clear();
+        if (validation.hasErrors()) {
+
+        }
+
+
+
     }
     
     public static void solicitarEncuentro(String idTema) {

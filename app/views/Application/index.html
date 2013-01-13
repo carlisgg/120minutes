@@ -4,11 +4,10 @@
 <div class="row row-top-bottom-separator">
     <div class="span8 offset2">
         #{form @Application.search()}
-            <p>Que quieres aprender?</p>
-
+            <h4>Que quieres aprender?</h4>
             <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
-            <button type="submit" class="btn">
-                Buscar <i class="icon-search"></i>
+            <button type="submit" id="search-button">
+                Buscar <i class="icon-search icon-white"></i>
             </button>
         #{/form}
     </div>
@@ -18,8 +17,10 @@
 	<div class="span12 grey-background">
 		<div class="row">
 		    <div class="span5 offset1">
-		        <h4>Lo más buscado</h4>
-		        <ul>
+		        <h4 class="position-ico ico-mas-buscados">
+		        	Lo más buscado
+		        </h4>
+		        <ul class="home-list">
 		        	#{list items:masBuscados, as:'buscado'}
 		            <li>
 		                <a href="@{Application.search(buscado.titulo)}" title="quienes somos">${buscado.titulo} (${buscado.repeticiones})</a>
@@ -29,8 +30,10 @@
 		    </div>
 		
 		    <div class="span5 offset1">
-		        <h4>Lo más ofertado</h4>
-		        <ul>
+		        <h4 class="position-ico ico-mas-ofertado">
+		        	Lo más ofertado
+		        </h4>
+		        <ul class="home-list">
 		            #{list items:masOfertados, as:'ofertado'}
 		                <li>
 		                    <a href="@{Application.search("\"" + ofertado.titulo + "\"")}" title="quienes somos">${ofertado.titulo} (${ofertado.repeticiones})</a>
