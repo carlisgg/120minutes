@@ -1,12 +1,13 @@
 <html>
 <head>
-    <title>Encuentro aceptado</title>
+    <title>Solicitud de encuentro</title>
 </head>
 <body>
 <img src="@@{'/public/images/favicon.png'}"/>
-<p>Hola ${encuentro.tema.experto.username} y ${encuentro.interesado.username},<br/>
-    120minutos.org os pone en contacto para que podrais quedar y tener vuestro encuentro sobre ${encuentro.tema.titulo} <br/>
-    Una vez se haya producido recordad volver a 120minutos.org para marcarlo como finalizado y puntuarlo.<br/>
+<p>Hola ${encuentro.tema.experto.username},<br/>
+    ${encuentro.interesado.username} ha solicitado un encuentro. <br/>
+    Quiere que le enseñes ${encuentro.tema.titulo}.<br/>
+    Confirma el encuentro en tu página de perfil en 120minutos.org <a href="@@{User.ficha()}">@@{User.ficha()}</a>
 </p>
 </body>
 </html>
