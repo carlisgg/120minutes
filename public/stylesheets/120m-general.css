@@ -32,7 +32,7 @@ body{
 	color: #314351;
 }
 
-#main-section h4.condensed {
+#main-section h4.condensed, #search-section h4.condensed {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
     font-size: 23px;
@@ -45,7 +45,7 @@ header{
 }
 
 header h2 span, header a{
-	text-transform: capitalize;
+	text-transform: none;
 	text-shadow: none !important;
 }
 
