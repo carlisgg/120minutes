@@ -8,12 +8,20 @@ import models.Encuentro;
 import models.Tema;
 import models.Usuario;
 import notifiers.Mails;
+import play.mvc.Before;
 import play.mvc.Controller;
 import play.mvc.Router;
 import play.mvc.With;
 
 @With(Secure.class)
 public class Admin extends Controller {
+
+    @Before
+    static void checkAuthentification() {
+        if(Security.connected() != null) {
+            renderArgs.put("user", Usuario.find("byEmail", Security.connected()).first());
+        }
+    }
 
     public static void index() {
         String username = Security.connected();

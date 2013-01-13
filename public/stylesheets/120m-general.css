@@ -107,6 +107,14 @@ header{
     font-size: 0.9em;
 }
 
+#menu-options .menu-creditos {
+    background: #fff;
+    color: #ff6600;
+    font-weight: bold;
+    border-radius: 20px;
+    padding: 2px 6px;
+}
+
 #menu-options .dropdown {
     text-transform: uppercase;
 }

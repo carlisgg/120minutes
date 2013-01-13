@@ -1,5 +1,6 @@
 package controllers;
 
+import org.junit.*;
 import play.data.validation.Email;
 import play.data.validation.Required;
 import play.data.validation.Valid;
@@ -8,8 +9,16 @@ import play.mvc.*;
 import java.util.*;
 
 import models.*;
+import play.mvc.Before;
 
 public class Application extends Controller {
+
+    @Before
+    static void checkAuthentification() {
+        if(Security.connected() != null) {
+            renderArgs.put("user", Usuario.find("byEmail", Security.connected()).first());
+        }
+    }
 
     public static void index() {
         List<Agrupacion> masOfertados = Tema.getMasOfertados();

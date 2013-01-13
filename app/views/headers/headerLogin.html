@@ -11,7 +11,11 @@
 		<a href="@{User.ficha()}#ensenando">
 			<i class="icon-user icon-white"></i> ${session.alias}
 		</a>
-	</li>		
+	</li>
+
+    <li class="menu-creditos">
+            ${user.creditos}
+    </li>
 
     <li>
         <a href="@{Secure.logout()}" class="login-option">Salir</a>
