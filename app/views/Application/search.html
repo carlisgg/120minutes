@@ -1,8 +1,8 @@
 #{extends 'main.html' /}
-#{set title:'120minutos - Resultados de b√∫squeda' /}
+#{set title:'120minutos - Resultados de búsqueda' /}
 
 <div class="row">
-	<div class="span12 grey-background">
+	<div class="span12">
 	
 		<div class="row">
 			<div class="span10 offset1">
@@ -76,9 +76,7 @@
 				        		</div>
 							</td>
 							<td>
-								<h5>
-									&nbsp;
-								</h5>
+
 								<div>
 				        			<ul class="no-bullets pull-right">
 				        				<li>
@@ -109,6 +107,7 @@
 		</div>
 		<div class="row">
 			<div class="span10 offset1">
+                No encuentras lo que buscas?, guarda esta búsqueda para aumentar las posibilidades de intercambio
                 #{form @User.add_interes(busqueda)}
                    	<button id="remember-search" class="btn" type="submit">
                    		<i class="icon-pushpin"></i> Recuerda esta busqueda

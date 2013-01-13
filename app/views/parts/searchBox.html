@@ -1,11 +1,11 @@
 <div class="row row-top-bottom-separator">
     <div class="span8 offset2">
-        #{form @Application.search()}
-            <h4 id="search-title">Que quieres aprender?</h4>
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
-            <button type="submit" id="search-button">
-                Buscar <i class="icon-search icon-white"></i>
-            </button>
-        #{/form}
+    #{form @Application.search()}
+        <h4 class="condensed">Que quieres aprender?</h4>
+        <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
+        <button type="submit" id="search-button">
+            Buscar <i class="icon-search icon-white"></i>
+        </button>
+    #{/form}
     </div>
 </div>

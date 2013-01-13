@@ -20,8 +20,8 @@ public class Admin extends Controller {
         System.out.println(username);
         Usuario user = Usuario.find("byEmail", username).first();
 
-        List<Tema> temasDeInteres = user.findTemasDeInteres();
-        render(temasDeInteres);
+        List<Tema> temas = user.findTemasDeInteres();
+        render("Application/search.html", temas);
     }
     
     public static void solicitarEncuentro(String idTema) {
