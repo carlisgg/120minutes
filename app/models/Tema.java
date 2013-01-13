@@ -52,4 +52,18 @@ public class Tema extends Model {
         play.modules.search.Query query = Search.search("titulo:(" + terms + ")", Tema.class);
         return query.fetch();
     }
+
+    public List<Tema> posiblesIntercambios(String emailInteresado) {
+        Usuario interesado = Usuario.find("byEmail", emailInteresado).first();
+
+        List<Tema> interesaAExperto = new ArrayList<Tema>(experto.findTemasDeInteres());
+        if (interesado != null) {
+            List<Tema> ofreceInteresado = interesado.temas;
+
+            interesaAExperto.retainAll(ofreceInteresado);
+            return interesaAExperto;
+        } else {
+            return new ArrayList<Tema>();
+        }
+    }
 }

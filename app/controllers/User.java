@@ -1,8 +1,9 @@
 package controllers;
 
-import models.Interes;
+import models.Busqueda;
 import models.Tema;
 import models.Usuario;
+import play.data.validation.Required;
 import play.data.validation.Valid;
 import play.mvc.Controller;
 import play.mvc.Router;
@@ -15,12 +16,18 @@ import java.util.Map;
 public class User extends Controller {
 
     public static void ficha(Long id) {
-        Usuario user = Usuario.findById(Long.valueOf(id));
+        Usuario user;
+        if (id != null) {
+            user = Usuario.findById(Long.valueOf(id));
+        } else {
+            String userEmail = Security.connected();
+            user = Usuario.find("byEmail", userEmail).first();
+        }
 
         render(user);
     }
 
-    public static void add_interes(@Valid Interes interes) {
+    public static void add_interes(Busqueda busqueda) {
 
         String userEmail = Security.connected();
         Usuario user = Usuario.find("byEmail", userEmail).first();
@@ -32,8 +39,8 @@ public class User extends Controller {
             flash.keep();
             validation.keep();
         } else {
-            interes.interesado = user;
-            interes.save();
+            busqueda.interesado = user;
+            busqueda.save();
         }
 
         Map<String, Object> args = new HashMap<String, Object>();

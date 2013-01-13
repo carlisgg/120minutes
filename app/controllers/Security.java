@@ -12,6 +12,8 @@ public class Security extends Secure.Security {
     }
 
     static void onAuthenticated() {
+        Usuario loggedUser = Usuario.find("byEmail", connected()).first();
+        session.put("alias", loggedUser.username);
         Admin.index();
     }
 }

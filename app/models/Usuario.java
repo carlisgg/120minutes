@@ -38,7 +38,7 @@ public class Usuario extends Model {
     public List<Tema> temas;
     
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
-    public List<Interes> intereses;
+    public List<Busqueda> intereses;
 
     @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "interesado")
     public List<Encuentro> encuentrosSolicitados;
@@ -92,8 +92,8 @@ public class Usuario extends Model {
     public List<Tema> findTemasDeInteres() {
         List<Tema> temasDeInteres = new ArrayList<Tema>();
 
-        for (Interes interes : intereses) {
-            Query query = Search.search("titulo:(" + interes.descripcion + ")", Tema.class);
+        for (Busqueda interes : intereses) {
+            Query query = Search.search("titulo:(" + interes.texto + ")", Tema.class);
             List<Tema> temasParaInteres = query.fetch();
             temasDeInteres.addAll(temasParaInteres);
         }

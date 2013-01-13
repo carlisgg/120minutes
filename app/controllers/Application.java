@@ -30,7 +30,7 @@ public class Application extends Controller {
         busqueda.save();
 
         List<Tema> temas = Tema.findOfertados(terms);
-        render(temas);
+        render(temas, busqueda);
     }
 
     public static void signup(@Valid Usuario usuario, String repetirPassword) {

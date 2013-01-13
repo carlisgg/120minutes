@@ -318,34 +318,15 @@
 										<td>
 											<h5>
 							        			<a href="/">
-							        				${interes.descripcion}
+							        				${interes.texto}
 							        			</a>
 							        		</h5>
 										</td>
 										<td>
 											<a href="#"><i class="icon-remove"></i> Eliminar</a>
-											<br>
-											<a href="#"><i class="icon-pencil"></i> Editar</a>
 										</td>
 									</tr>
 									#{/list}
-									<tr>
-										<td colspan="2">
-                                            #{ifErrors}
-                                                <p class="error">
-                                                ${errors[0]}
-                                                </p>
-                                            #{/ifErrors}
-
-                                            #{form @User.add_interes()}
-                                                <label for="descripcion">Describe lo que te interesa que te cuenten en 120 minutos</label>
-                                                <input id="descripcion" name="interes.descripcion" value="${flash['interes.descripcion']}" type="text" size="140" />
-
-                                                <input type="submit" value="Añadir un interés" />
-
-                                            #{/form}
-										</td>
-									</tr>
 								</tbody>
 							</table>
 						</div>
