@@ -44,11 +44,20 @@ header{
 	background-repeat: repeat;
 }
 
+header h2 span, header a{
+	text-transform: capitalize;
+	text-shadow: none !important;
+}
+
 #header-slogan {
 	font-weight: 300;
 	text-transform: uppercase;
 	color: white;
 	font-size: 20px;
+}
+
+.navbar-interiores{
+	margin:0px;
 }
 
 .grey-background{
