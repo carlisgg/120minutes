@@ -93,6 +93,7 @@ header{
 }
 
 #menu-options,
+.no-bullets,
 .horizontal-list{
 	list-style: none;
 	margin-top: 10px;
@@ -145,15 +146,18 @@ header{
 	padding: 20px;
 }
 
-.rating {
-	unicode-bidi: bidi-override;
-	direction: rtl;
-	font-size: 30px;
+.icon-17px{
+	font-size: 17px;
 }
 
-.rating span.star {
-	font-family: FontAwesome;
-	font-weight: normal;
-	font-style: normal;
-	display: inline-block;
+.icon-24px{
+	font-size: 24px;
+}
+
+.color-white{
+	color: white;
+}
+
+.color-orange{
+	color: #f60;
 }
