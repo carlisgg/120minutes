@@ -286,7 +286,22 @@
 									#{/list}
 									<tr>
 										<td colspan="2">
-											<a href="#" id="add-tema-puedo"><i class="icon-plus"></i> A&ntilde;adir tema</a>
+                                            #{ifErrors}
+                                                <p class="error">
+                                                ${errors[0]}
+                                                </p>
+                                            #{/ifErrors}
+
+                                            #{form @User.add_tema()}
+                                                <label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
+                                                <input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
+                                                <label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
+                                                <input id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140" />
+
+                                                <input type="submit" value="Añadir un tema" />
+
+                                            #{/form}
+
 										</td>
 									</tr>
 								</tbody>
@@ -323,10 +338,17 @@
 									#{/list}
 									<tr>
 										<td colspan="2">
-											<a href="#"><i class="icon-plus"></i> A&ntilde;adir un interés</a>
-                                            #{form @Admin.add_interes()}
-                                                <label for="">Describe lo que te interesa que te cuenten en 120 minutos</label>
-                                                <input name="interes.descripcion" type="text" size="140" />
+                                            #{ifErrors}
+                                                <p class="error">
+                                                ${errors[0]}
+                                                </p>
+                                            #{/ifErrors}
+
+                                            #{form @User.add_interes()}
+                                                <label for="descripcion">Describe lo que te interesa que te cuenten en 120 minutos</label>
+                                                <input id="descripcion" name="interes.descripcion" value="${flash['interes.descripcion']}" type="text" size="140" />
+
+                                                <input type="submit" value="Añadir un interés" />
 
                                             #{/form}
 										</td>

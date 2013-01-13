@@ -3,13 +3,13 @@ package controllers;
 import java.util.List;
 
 import models.Encuentro;
-import models.Interes;
 import models.Tema;
 import models.Usuario;
 import notifiers.Mails;
-import play.data.validation.Valid;
 import play.mvc.Controller;
+import play.mvc.With;
 
+@With(Secure.class)
 public class Admin extends Controller {
 
     public static void index() {
@@ -19,17 +19,6 @@ public class Admin extends Controller {
 
         List<Tema> temasDeInteres = user.findTemasDeInteres();
         render(temasDeInteres);
-    }
-
-    public static void add_interes(@Valid Interes interes) {
-
-        flash.clear();
-        if (validation.hasErrors()) {
-
-        }
-
-
-
     }
     
     public static void solicitarEncuentro(String idTema) {
@@ -99,6 +88,5 @@ public class Admin extends Controller {
     	}
         render(encuentro);
     }
-    
 
 }
