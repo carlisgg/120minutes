@@ -72,7 +72,7 @@ public class Admin extends Controller {
     	String userEmail = Security.connected();
     	Usuario user = Usuario.find("byEmail", userEmail).first();
     	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
-    	if (user.id==encuentro.tema.experto.id){
+    	if (user.id==encuentro.interesado.id){
     		encuentro.estadoExperto=Encuentro.Estado.Cancelado;
     		encuentro.estadoInteresado=Encuentro.Estado.Cancelado;
     		encuentro.save();
@@ -102,7 +102,7 @@ public class Admin extends Controller {
     	String userEmail = Security.connected();
     	Usuario user = Usuario.find("byEmail", userEmail).first();
     	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
-    	if (user.id==encuentro.tema.experto.id){
+    	if (user.id==encuentro.interesado.id){
     		encuentro.estadoInteresado=Encuentro.Estado.Finalizado;
     		encuentro.save();
     		Mails.encuentro_cancelado(encuentro);

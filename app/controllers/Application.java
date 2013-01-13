@@ -21,6 +21,14 @@ public class Application extends Controller {
     public static void register() {
         render();
     }
+    
+    public static void quienes_somos() {
+        render();
+    }
+    
+    public static void como_funciona() {
+        render();
+    }
 
     public static void search(String terms) {
         Busqueda busqueda = new Busqueda();
