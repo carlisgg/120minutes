@@ -40,8 +40,8 @@
     <!-- google fonts -->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
     
-    <link href="@{'/public/stylesheets/120m-bootstrap.min.css'}" rel="stylesheet">
-    <link href="@{'/public/stylesheets/120m-bootstrap-responsive.min.css'}" rel="stylesheet">
+    <link href="@{'/public/stylesheets/120m-bootstrap.css'}" rel="stylesheet">
+    <link href="@{'/public/stylesheets/120m-bootstrap-responsive.css'}" rel="stylesheet">
 
     <!-- Page Style -->
     <link rel="stylesheet" type="text/css" href="@{'/public/stylesheets/120m-general.css'}"/>
@@ -58,27 +58,34 @@
     <header id="header" class="container">
 		
 		<div class="navbar">
-			
-			<div class="span4 offset4">
-				<div class="row">
-					<h1 class="span2 span-center">
-						<a style="text-decoration:none;" class="brand" id="brand" href="/" title="120minutes.org" lang="es" hreflang="es">
-							<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-						</a>
-					</h1>
+			<div class="row">
+				
+				<div class="span1 visible-phone">
+					<a class="brand" id="brand" href="/" title="120minutes.org">
+						<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
+					</a>
 				</div>
-				<div class="row">
-					<h2 id="header-slogan"class="span5 hidden-phone">Comparte lo que sabes en 2 horas</h2>
+				
+				<div class="span4 offset3 hidden-phone">
+					<div class="row">
+						<h1 class="span4 span-center">
+							<a class="brand" id="brand" href="/" title="120minutes.org">
+								<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
+							</a>
+						</h1>
+					</div>
+					<div class="row">
+						<h2 id="header-slogan"class="span4 span-center">Comparte lo que sabes en 2 horas</h2>
+					</div>
 				</div>
-			</div>
-
-
-            #{if session.username }
-                #{include 'headers/headerLogin.html'/}
-            #{/if}
-            #{else}
-                #{include 'headers/headerLogout.html'/}
-            #{/else}
+	
+	            #{if session.username }
+	                #{include 'headers/headerLogin.html'/}
+	            #{/if}
+	            #{else}
+	                #{include 'headers/headerLogout.html'/}
+	            #{/else}
+            </div>
 		
 		</div>
 

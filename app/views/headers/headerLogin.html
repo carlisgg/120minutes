@@ -1,11 +1,21 @@
-<ul id="login-options" class="nav pull-right">
+<div class="span5">
+<ul id="menu-options" class="nav pull-right">
 
 	<li>
-		<a href="/">Como funciona</a>
+		<a href="/">
+			<i class="icon-cog icon-white"></i> Como funciona
+		</a>
+	</li>
+	
+	<li>
+		<a href="/">
+			<i class="icon-user icon-white"></i> Luis
+		</a>
 	</li>		
 
     <li>
-        <a href="@{Secure.logout()}">Salir</a>
+        <a href="@{Secure.logout()}" class="login-option">Salir</a>
     </li>
 
 </ul>
+</div>
