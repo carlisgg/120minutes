@@ -144,3 +144,16 @@ header{
 	margin-left: 0px;
 	padding: 20px;
 }
+
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+	font-size: 30px;
+}
+
+.rating span.star {
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	display: inline-block;
+}
