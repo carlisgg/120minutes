@@ -1,11 +1,11 @@
 #{extends 'main.html' /}
-#{set title:'120minutos - Resultados de búsqueda' /}
+#{set title:'120minutos - Resultados de b√∫squeda' /}
 
 <div class="row row-top-bottom-separator">
     <div class="span8 offset2">
         #{form @Application.search()}
             <h4 id="search-title">Que quieres aprender?</h4>
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
+            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterr√°nea..." value="${flash['terms']}">
             <button type="submit" id="search-button">
                 Buscar <i class="icon-search icon-white"></i>
             </button>
@@ -45,10 +45,28 @@
 						<tr>
 							<td>
 								<h5>
-				        			<a href="@{Admin.solicitarEncuentro(tema.id)}">
+		        					<a href="#modal-${tema.id}" role="button" data-toggle="modal">
 		        						${tema.titulo}
 		        					</a>
 				        		</h5>
+				        		<!-- Modal -->
+								<div id="modal-${tema.id}" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+										<h4>${tema.titulo}</h4>
+									</div>
+									<div class="modal-body">
+										<p>Te ponemos en contacto con ${tema.experto.username}, a ambos enviamos un mail para que aprendais. Muchas gracias.</p>
+										<a href="@{Admin.solicitarEncuentro(tema.id)}" class="open-modal">
+			        						Enviar mail
+			        					</a>
+									</div>
+									<div class="modal-footer">
+										<button class="btn" data-dismiss="modal" aria-hidden="true">
+											<i class="icon-remove"></i> Cerrar
+										</button>
+									</div>
+								</div>
 				        		<p>
 				        			${tema.descripcion}
 				        		</p>
@@ -94,7 +112,7 @@
 				#{else}	
 			   		<div class="alert">
 		  				<button type="button" class="close" data-dismiss="alert">&times;</button>
-		  				<strong><i class="icon-warning-sign"></i> Rayos!</strong> No hay ningún usuario que controle de lo que estás buscando :(
+		  				<strong><i class="icon-warning-sign"></i> Rayos!</strong> No hay ning√∫n usuario que controle de lo que est√°s buscando :(
 					</div>
 			    #{/else}
 
