@@ -29,14 +29,17 @@ public class User extends Controller {
 
         if (validation.hasErrors()) {
             params.flash();
-
-            render("User/ficha.html", user);
+            flash.keep();
+            validation.keep();
+        } else {
+            interes.interesado = user;
+            interes.save();
         }
 
-        interes.interesado = user;
-        interes.save();
-
-        ficha(user.id);
+        Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+        String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#quiero");
     }
 
     public static void add_tema(@Valid Tema tema) {
@@ -48,6 +51,8 @@ public class User extends Controller {
 
         if (validation.hasErrors()) {
             params.flash();
+            validation.keep();
+            flash.keep();
         } else {
             tema.experto = user;
             tema.save();
