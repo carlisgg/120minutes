@@ -18,7 +18,12 @@
 	
 		<div class="row">
 			<div class="span10 offset1">
+            #{if user.email == session.username}
 				<h3>Tu perfil</h3>
+            #{/if}
+            #{else}
+                <h3>Perfil de usuario</h3>
+            #{/else}
 			</div>
 		</div>
 		
@@ -38,20 +43,28 @@
 			<div class="span10 offset1">
 				<div class="tabbable"> <!-- Only required for left/right tabs -->
 					<ul class="nav nav-tabs">
-						<li>
-							<a href="#ensenando" data-toggle="tab">Estoy ense&ntilde;ando</a>
-						</li>
-						<li>
-							<a href="#aprendiendo" data-toggle="tab">Estoy aprendiendo</a>
-						</li>
+                        #{if user.email == session.username}
+                            <li>
+                                <a href="#ensenando" data-toggle="tab">Estoy ense&ntilde;ando</a>
+                            </li>
+                            <li>
+                                <a href="#aprendiendo" data-toggle="tab">Estoy aprendiendo</a>
+                            </li>
+                        #{/if}
 						<li>
 							<a href="#puedo" data-toggle="tab">Puedo ense&ntilde;ar</a>
 						</li>
-						<li>
-							<a href="#quiero" data-toggle="tab">Quiero aprender</a>
-						</li>
+                        #{if user.email == session.username}
+                            <li>
+                                <a href="#quiero" data-toggle="tab">Quiero aprender</a>
+                            </li>
+                        #{/if}
 					</ul>
+
+
 					<div class="tab-content profile-tab-content">
+
+                    #{if user.email == session.username}
 						<div class="tab-pane active" id="ensenando">
 							<table class="table table-condensed">
 								<thead>
@@ -265,6 +278,8 @@
 							</table>
 							
 						</div>
+
+                        #{/if}
 						<div class="tab-pane" id="puedo">
 							<table class="table table-condensed">
 								<thead>
@@ -297,29 +312,33 @@
 										</td>
 									</tr>
 									#{/list}
-									<tr>
-										<td colspan="2">
-                                            #{ifErrors}
-                                                <p class="error">
-                                                ${errors[0]}
-                                                </p>
-                                            #{/ifErrors}
+                                    #{if user.email == session.username}
+                                        <tr>
+                                            <td colspan="2">
+                                                #{ifErrors}
+                                                    <p class="error">
+                                                    ${errors[0]}
+                                                    </p>
+                                                #{/ifErrors}
 
-                                            #{form @User.add_tema()}
-                                                <label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
-                                                <input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
-                                                <label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
-                                                <input id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140" />
+                                                #{form @User.add_tema()}
+                                                    <label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
+                                                    <input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
+                                                    <label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
+                                                    <input id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140" />
 
-                                                <input type="submit" value="Añadir un tema" />
+                                                    <input type="submit" value="Añadir un tema" />
 
-                                            #{/form}
+                                                #{/form}
 
-										</td>
-									</tr>
+                                            </td>
+                                        </tr>
+                                    #{/if}
 								</tbody>
 							</table>
 						</div>
+
+                    #{if user.email == session.username}
 						<div class="tab-pane" id="quiero">
 							<table class="table table-condensed">
 								<thead>
@@ -350,6 +369,7 @@
 								</tbody>
 							</table>
 						</div>
+                    #{/if}
 					</div>
 				</div>
 			</div>
