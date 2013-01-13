@@ -5,7 +5,7 @@
     <div class="span8 offset2">
         #{form @Application.search()}
             <h4 id="search-title">Que quieres aprender?</h4>
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
+            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
             <button type="submit" id="search-button">
                 Buscar <i class="icon-search icon-white"></i>
             </button>
@@ -18,12 +18,14 @@
 	
 		<div class="row">
 			<div class="span10 offset1">
-				<h3>Hacer cocteles</h3>
-				<p id="search-info">Hemos encontrado <span>10</span> resultados</p> 
+				<h3>${flash['terms']}</h3>
+				<p id="search-info">Hemos encontrado <span>${temas.size()}</span> resultados</p> 
 			</div>
 		</div>
 		<div class="row">
 			<div class="span10 offset1">
+				
+				#{ifnot temas.empty}
 				<table id="search-results" class="table table-condensed">
 					<thead>
 						<tr>
@@ -53,7 +55,7 @@
 							</td>
 							<td>
 								<h5>
-				        			<a href="@{User.ficha(tema.experto.id)}">
+				        			<a href="@{User.ficha(tema.experto.id)}#puedo">
 				        				${tema.experto.username}
 				        			</a>
 				        		</h5>
@@ -99,6 +101,7 @@
 						#{/list}
 					</tbody>
 				</table>
+				#{/ifnot}
 				#{else}	
 			   		<div class="alert">
 		  				<button type="button" class="close" data-dismiss="alert">&times;</button>

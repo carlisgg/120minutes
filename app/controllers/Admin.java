@@ -1,12 +1,15 @@
 package controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import models.Encuentro;
 import models.Tema;
 import models.Usuario;
 import notifiers.Mails;
 import play.mvc.Controller;
+import play.mvc.Router;
 import play.mvc.With;
 
 @With(Secure.class)
@@ -23,48 +26,91 @@ public class Admin extends Controller {
     
     public static void solicitarEncuentro(String idTema) {
     	String userEmail = Security.connected();
-    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
-    	if (usuario.creditos<1){
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	if (user.creditos<1){
     		flash.error("No tienes suficientes creditos para solicitar el encuentro.");
     	}
-    	Encuentro encuentro = Encuentro.crearEncuentro(Long.valueOf(idTema), usuario);
+    	Encuentro encuentro = Encuentro.crearEncuentro(Long.valueOf(idTema), user);
     	Mails.solicitud_encuentro(encuentro);
         render(encuentro);
     }
     
     public static void confirmarEncuentro(String idEncuentro) {
     	String userEmail = Security.connected();
-    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
-    	Encuentro encuentro = Encuentro.findById(idEncuentro);
-    	if (usuario.id==encuentro.tema.experto.id){
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+    	if (user.id==encuentro.tema.experto.id){
     		encuentro.estadoExperto=Encuentro.Estado.Aceptado;
     		encuentro.estadoInteresado=Encuentro.Estado.Aceptado;
+    		encuentro.save();
     		Mails.encuentro_aceptado(encuentro);
     	}
-        render(encuentro);
+    	
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
     }
     
     public static void rechazarEncuentro(String idEncuentro) {
     	String userEmail = Security.connected();
-    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
-    	Encuentro encuentro = Encuentro.findById(idEncuentro);
-    	if (usuario.id==encuentro.tema.experto.id){
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+    	if (user.id==encuentro.tema.experto.id){
     		encuentro.estadoExperto=Encuentro.Estado.Rechazado;
     		encuentro.estadoInteresado=Encuentro.Estado.Rechazado;
+    		encuentro.save();
     		Mails.encuentro_rechazado(encuentro);
     	}
-        render(encuentro);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
     }
     
     public static void cancelarEncuentro(String idEncuentro) {
     	String userEmail = Security.connected();
-    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
-    	Encuentro encuentro = Encuentro.findById(idEncuentro);
-    	if (usuario.id==encuentro.tema.experto.id){
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+    	if (user.id==encuentro.tema.experto.id){
     		encuentro.estadoExperto=Encuentro.Estado.Cancelado;
     		encuentro.estadoInteresado=Encuentro.Estado.Cancelado;
+    		encuentro.save();
     		Mails.encuentro_cancelado(encuentro);
     	}
-        render(encuentro);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#aprendiendo");
     }
+    
+    public static void finalizarEncuentroOfertante(String idEncuentro) {
+    	String userEmail = Security.connected();
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+    	if (user.id==encuentro.tema.experto.id){
+    		encuentro.estadoExperto=Encuentro.Estado.Finalizado;
+    		encuentro.save();
+    	}
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
+    }
+    
+    public static void finalizarEncuentroSolicitante(String idEncuentro) {
+    	String userEmail = Security.connected();
+    	Usuario user = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+    	if (user.id==encuentro.tema.experto.id){
+    		encuentro.estadoInteresado=Encuentro.Estado.Finalizado;
+    		encuentro.save();
+    		Mails.encuentro_cancelado(encuentro);
+    	}
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#aprendiendo");
+    }
+
 }
