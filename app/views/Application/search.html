@@ -22,7 +22,6 @@
 				<p id="search-info">Hemos encontrado <span>10</span> resultados</p> 
 			</div>
 		</div>
-		
 		<div class="row">
 			<div class="span10 offset1">
 				<table id="search-results" class="table table-condensed">
@@ -44,9 +43,9 @@
 						<tr>
 							<td>
 								<h5>
-				        			<a href="/">
-				        				${tema.titulo}
-				        			</a>
+				        			<a href="@{Admin.solicitarEncuentro(tema.id)}">
+		        						${tema.titulo}
+		        					</a>
 				        		</h5>
 				        		<p>
 				        			${tema.descripcion}

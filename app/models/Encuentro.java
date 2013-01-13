@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 import play.db.jpa.Model;
+import play.libs.Codec;
 
 @Entity
 public class Encuentro extends Model {
@@ -15,11 +16,11 @@ public class Encuentro extends Model {
     @ManyToOne
     public Usuario interesado;
 
-	enum Estado {
-		//Solicitado---|--> Aceptado (por el ofertante) ---> Realizado ---> Votado ---> Finalizado
-		//             |--> Rechazado (por el ofertante) 
-		//             |--> Cancelado (por el solicitante)
-	    Solicitado, Rechazado, Aceptado, Cancelado, Realizado, Votado, Finalizado;
+	public enum Estado {
+		//Solicitado---|--> Aceptado (por el experto) ---> Finalizado --->  Votado  
+		//             |--> Rechazado (por el experto) 
+		//             |--> Cancelado (por el interesado)
+	    Solicitado, Rechazado, Aceptado, Cancelado, Finalizado, Votado;
 	    }
 
 	public Estado estadoExperto;
@@ -29,8 +30,10 @@ public class Encuentro extends Model {
     	Encuentro encuentro = new Encuentro();
     	encuentro.tema = Tema.findById(idTema);
     	encuentro.interesado = interesado;
-    	
+    	encuentro.estadoExperto = Estado.Solicitado;
+    	encuentro.estadoInteresado = Estado.Solicitado;
     	encuentro.save();
     	return encuentro;
     }
+    
 }
