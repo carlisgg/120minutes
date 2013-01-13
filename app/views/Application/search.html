@@ -94,6 +94,7 @@
 				        				<li>
 				        					<i class="icon-map-marker"></i>
 				        				</li>
+                                        <li><a href="@{Admin.solicitarEncuentro(tema.id)}">LO QUIERO</a></li>
 				        			</ul>
 				        		</div>
 							</td>
@@ -109,7 +110,7 @@
 					</div>
 			    #{/else}
 
-                No es lo que busco
+                <big>No es lo que buscas?, guarda esta búsqueda para aumentar las posibilidades de intercambio</big>
                 #{form @User.add_interes(busqueda)}
                     <input type="submit" value="recuerda esta búsqueda"/>
                 #{/form}
