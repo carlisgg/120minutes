@@ -60,6 +60,10 @@ header h2 span, header a{
 	margin:0px;
 }
 
+.navbar-interiores #brand span {
+    font-size: 26px;
+}
+
 .grey-background{
 	background-color:#EAEEEF;
 }
