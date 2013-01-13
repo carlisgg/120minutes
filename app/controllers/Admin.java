@@ -51,6 +51,10 @@ public class Admin extends Controller {
     		encuentro.estadoExperto=Encuentro.Estado.Aceptado;
     		encuentro.estadoInteresado=Encuentro.Estado.Aceptado;
     		encuentro.save();
+    		user.creditos++;
+    		user.save();
+    		encuentro.interesado.creditos--;
+    		encuentro.interesado.save();
     		Mails.encuentro_aceptado(encuentro);
     	}
     	
