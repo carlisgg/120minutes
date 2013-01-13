@@ -39,7 +39,7 @@
 				<div class="tabbable"> <!-- Only required for left/right tabs -->
 					<ul class="nav nav-tabs">
 						<li>
-							<a href="#ense–ando" data-toggle="tab">Estoy ense&ntilde;ando</a>
+							<a href="#enseï¿½ando" data-toggle="tab">Estoy ense&ntilde;ando</a>
 						</li>
 						<li>
 							<a href="#aprendiendo" data-toggle="tab">Estoy aprendiendo</a>
@@ -52,7 +52,7 @@
 						</li>
 					</ul>
 					<div class="tab-content profile-tab-content">
-						<div class="tab-pane active" id="ense–ando">
+						<div class="tab-pane active" id="enseï¿½ando">
 							<table class="table table-condensed">
 								<thead>
 									<tr>
@@ -259,7 +259,12 @@
 									#{/list}
 									<tr>
 										<td colspan="2">
-											<a href="#"><i class="icon-plus"></i> A&ntilde;adir tema</a>
+											<a href="#"><i class="icon-plus"></i> A&ntilde;adir un interÃ©s</a>
+                                            #{form @Admin.add_interes()}
+                                                <label for="">Describe lo que te interesa que te cuenten en 120 minutos</label>
+                                                <input name="interes.descripcion" type="text" size="140" />
+
+                                            #{/form}
 										</td>
 									</tr>
 								</tbody>
