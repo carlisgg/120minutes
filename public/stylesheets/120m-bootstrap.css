@@ -237,7 +237,8 @@ a {
 
 a:hover {
   color: #005580;
-  text-decoration: underline;
+  text-decoration: none;
+  opacity: 0.8;
 }
 
 .img-rounded {
@@ -2019,6 +2020,10 @@ table {
 .table-condensed th,
 .table-condensed td {
   padding: 4px 5px;
+}
+
+.table-condensed h4 {
+    font-family: "Open Sans Condensed", sans-serif;
 }
 
 .table-bordered {

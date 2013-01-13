@@ -1,17 +1,7 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Resultados de búsqueda' /}
 
-<div class="row row-top-bottom-separator">
-    <div class="span8 offset2">
-        #{form @Application.search()}
-            <h4 id="search-title">Que quieres aprender?</h4>
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
-            <button type="submit" id="search-button">
-                Buscar <i class="icon-search icon-white"></i>
-            </button>
-        #{/form}
-    </div>
-</div>
+#{include 'parts/searchBox.html'/}
 
 <div class="row">
 	<div class="span12 grey-background">
@@ -60,41 +50,27 @@
 				        			</a>
 				        		</h5>
 				        		<div>
-				        			<ul class="horizontal-list">
-				        				<li>
-				        					<i class="icon-star"></i>
-				        				</li>
-				        				<li>
-				        					<i class="icon-star"></i>
-				        				</li>
-				        				<li>
-				        					<i class="icon-star"></i>
-				        				</li>
-				        				<li>
-				        					<i class="icon-star"></i>
-				        				</li>
-				        				<li>
-				        					<i class="icon-star icon-white"></i>
-				        				</li>
-				        			</ul>
+				        			<span class="rating">
+										<span class="icon-star color-orange"></span>
+										<span class="icon-star color-orange"></span>
+										<span class="icon-star color-orange"></span>
+										<span class="icon-star"></span>
+										<span class="icon-star"></span>
+									</span>
 				        		</div>
 							</td>
 							<td>
-								<h5>
-									&nbsp;
-								</h5>
+
 								<div>
-				        			<ul class="horizontal-list">
+				        			<ul class="no-bullets pull-right">
 				        				<li>
-				        					<i class="icon-heart"></i>
                                             #{ifnot tema.posiblesIntercambios(session.username).empty}
-                                                SI!!!
+                                                <i class="icon-heart color-orange icon-17px"></i> Posible intercambio!
                                             #{/ifnot}
 				        				</li>
 				        				<li>
-				        					<i class="icon-map-marker"></i>
+				        					<i class="icon-map-marker icon-17px"></i> Aprox. 20km 
 				        				</li>
-                                        <li><a href="@{Admin.solicitarEncuentro(tema.id)}">LO QUIERO</a></li>
 				        			</ul>
 				        		</div>
 							</td>
@@ -110,9 +86,16 @@
 					</div>
 			    #{/else}
 
-                <big>No es lo que buscas?, guarda esta búsqueda para aumentar las posibilidades de intercambio</big>
+                
+			</div>
+		</div>
+		<div class="row">
+			<div class="span10 offset1">
+                No encuentras lo que buscas?, guarda esta búsqueda para aumentar las posibilidades de intercambio
                 #{form @User.add_interes(busqueda)}
-                    <input type="submit" value="recuerda esta búsqueda"/>
+                   	<button id="remember-search" class="btn" type="submit">
+                   		<i class="icon-pushpin"></i> Recuerda esta busqueda
+                   	</button>
                 #{/form}
 			</div>
 		</div>

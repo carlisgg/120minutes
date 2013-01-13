@@ -23,8 +23,15 @@
 
 body{
 	background-color: white;
-	font-family: 'Open Sans Condensed', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 	color: #314351;
+}
+
+#main-section h4.condensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 23px;
+    text-transform: none;
 }
 
 header{
@@ -88,11 +95,20 @@ header{
 }
 
 .home-list{
-	list-style: circle;
 	padding-left: 30px;
+    color:  #ff6600;
+}
+
+#menu-options {
+    font-size: 0.9em;
+}
+
+#menu-options .dropdown {
+    text-transform: uppercase;
 }
 
 #menu-options,
+.no-bullets,
 .horizontal-list{
 	list-style: none;
 	margin-top: 10px;
@@ -138,9 +154,30 @@ header{
 	background-color: white;
 }
 
+#search-results tbody tr td {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
 .profile-tab-content{
 	background-color: white;
 	margin-top: -20px;
 	margin-left: 0px;
 	padding: 20px;
+}
+
+.icon-17px{
+	font-size: 17px;
+}
+
+.icon-24px{
+	font-size: 24px;
+}
+
+.color-white{
+	color: white;
+}
+
+.color-orange{
+	color: #f60;
 }
