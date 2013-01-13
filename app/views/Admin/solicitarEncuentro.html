@@ -1,0 +1,10 @@
+#{extends 'main.html' /}
+#{set title:'120minutos - Inicio' /}
+
+
+#{if flash.error}
+        <p class="error">${flash.error}</p>
+#{/if}
+#{else}
+		<p class="success">Se ha enviado un email a ${encuentro.tema.experto.username}. En cuanto acepte el encuentro ambos recibireis un email a través del cual os pondremos en contacto.</p>
+#{/else}

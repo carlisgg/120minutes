@@ -1,0 +1,13 @@
+<html>
+<head>
+    <title>Solicitud de encuentro</title>
+</head>
+<body>
+<img src="@@{'/public/images/favicon.png'}"/>
+<p>Hola ${encuentro.tema.experto.username},<br/>
+    ${encuentro.interesado.username} ha solicitado un encuentro. <br/>
+    Quiere que le enseñes ${encuentro.tema.titulo}.<br/>
+    Confirma el encuentro en tu página de perfil en 120minutos.org <a href="@@{User.ficha()}">@@{User.ficha()</a>
+</p>
+</body>
+</html>
