@@ -38,7 +38,7 @@
 			<div class="span10 offset1">
 				<div class="tabbable"> <!-- Only required for left/right tabs -->
 					<ul class="nav nav-tabs">
-						<li class="active">
+						<li>
 							<a href="#ensenando" data-toggle="tab">Estoy ense&ntilde;ando</a>
 						</li>
 						<li>
@@ -60,7 +60,7 @@
 											<h4 class="position-ico ico-tema">Tema</h4>
 										</th>
 										<th>
-											<h4 class="position-ico ico-autor">Usuario</h4>
+											<h4 class="position-ico ico-autor">Interesado</h4>
 										</th>
 										<th>
 											&nbsp;
@@ -82,75 +82,82 @@
 										</td>
 										<td>
 											<h5>
-							        			<a href="/">
-							        				${encuentroComoOfertante.tema.titulo}
+												<a href="@{User.ficha(encuentroComoOfertante.interesado.id)}#puedo">
+							        				${encuentroComoOfertante.interesado.username}
 							        			</a>
 							        		</h5>
 										</td>
 										<td>
-											#{if (encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Solicitado)}
-											        <a href="@{Admin.confirmarEncuentro(encuentroComoOfertante.id)}">Confirmar</a><a href="@{Admin.rechazarEncuentro(encuentroComoOfertante.id)}">Rechazar</a>
+											#{if (encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Solicitado)}
+												<a href="@{Admin.confirmarEncuentro(encuentroComoOfertante.id)}">
+													<i class="icon-ok"></i> Confirmar
+												</a>
+												<br />
+												<a href="@{Admin.rechazarEncuentro(encuentroComoOfertante.id)}">
+													<i class="icon-remove"></i> Rechazar
+												</a>
 											#{/if}
-											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Rechazado))}
-													<p>Rechazado.</p>
+											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Rechazado))}
+												<span class="label label-important">Rechazado</span>
 											#{/elseif}
-											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Cancelado))}
-													<p>Cancelado.</p>
+											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Cancelado))}
+												<span class="label label-important">Cancelado</span>
 											#{/elseif}
-											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Aceptado))}
-													<a href="@{Admin.finalizarEncuentroOfertante(encuentroComoOfertante.id)}">Finalizado</a>
+											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Aceptado))}
+												<a href="@{Admin.finalizarEncuentroOfertante(encuentroComoOfertante.id)}">
+													<i class="icon-ok"></i> Finalizado
+												</a>
 											#{/elseif}
-											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Finalizado))}
-													<h5>
-									        			Puntua el encuentro
-									        		</h5>
-									        		<div>
-									        			<ul class="horizontal-list">
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star icon-white"></i>
-									        				</li>
-									        			</ul>
-									        		</div>
+											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Finalizado))}
+												<h5>
+								        			Puntua el encuentro
+								        		</h5>
+								        		<div>
+								        			<ul class="horizontal-list">
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star icon-white"></i>
+								        				</li>
+								        			</ul>
+								        		</div>
 											#{/elseif}
-											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Votado))}
-									        		<div>
-									        			<ul class="horizontal-list">
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star icon-white"></i>
-									        				</li>
-									        			</ul>
-									        		</div>
+											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Votado))}
+								        		<div>
+								        			<ul class="horizontal-list">
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star"></i>
+								        				</li>
+								        				<li>
+								        					<i class="icon-star icon-white"></i>
+								        				</li>
+								        			</ul>
+								        		</div>
 											#{/elseif}
 										</td>
 									</tr>
 									#{/list}
 								</tbody>
 							</table>
-							
 						</div>
 						<div class="tab-pane active" id="aprendiendo">							
 							<table class="table table-condensed">
@@ -182,25 +189,31 @@
 										</td>
 										<td>
 											<h5>
-							        			<a href="/">
-							        				${encuentroComoSolicitante.tema.titulo}
+												<a href="@{User.ficha(encuentroComoSolicitante.tema.experto.id)}#puedo">
+							        				${encuentroComoSolicitante.tema.experto.username}
 							        			</a>
 							        		</h5>
 										</td>
 										<td>
-											#{if (encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Solicitado)}
-											        <p>Esperando confirmación.</p><a href="@{Admin.cancelarEncuentro(encuentroComoSolicitante.id)}">Cancelar</a>
+											#{if (encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Solicitado)}
+											        <span class="label label-info">Esperando confirmacion</span>
+											        <br />
+											        <a href="@{Admin.cancelarEncuentro(encuentroComoSolicitante.id)}">
+											        	<i class="icon-remove"></i> Cancelar
+											        </a>
 											#{/if}
-											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Rechazado))}
-													<p>Rechazado.</p>
+											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Rechazado))}
+													<span class="label label-important">Rechazado</span>
 											#{/elseif}
-											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Cancelado))}
-													<p>Cancelado.</p>
+											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Cancelado))}
+													<span class="label label-important">Cancelado</span>
 											#{/elseif}
-											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Aceptado))}
-													<a href="@{Admin.finalizarEncuentroSolicitante(encuentroComoSolicitante.id)}">Finalizado</a>
+											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Aceptado))}
+													<a href="@{Admin.finalizarEncuentroSolicitante(encuentroComoSolicitante.id)}">
+														<i class="icon-ok"></i> Finalizado
+													</a>
 											#{/elseif}
-											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Finalizado))}
+											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Finalizado))}
 													<h5>
 									        			Puntua el encuentro
 									        		</h5>
@@ -224,7 +237,7 @@
 									        			</ul>
 									        		</div>
 											#{/elseif}
-											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Votado))}
+											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Votado))}
 									        		<div>
 									        			<ul class="horizontal-list">
 									        				<li>
