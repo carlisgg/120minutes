@@ -105,7 +105,7 @@
 											#{/elseif}
 											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Aceptado))}
 												<a href="@{Admin.finalizarEncuentroOfertante(encuentroComoOfertante.id)}">
-													<i class="icon-ok"></i> Finalizado
+													<i class="icon-ok"></i> Finalizar
 												</a>
 											#{/elseif}
 											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Finalizado))}
@@ -210,7 +210,7 @@
 											#{/elseif}
 											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Aceptado))}
 													<a href="@{Admin.finalizarEncuentroSolicitante(encuentroComoSolicitante.id)}">
-														<i class="icon-ok"></i> Finalizado
+														<i class="icon-ok"></i> Finalizar
 													</a>
 											#{/elseif}
 											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Finalizado))}

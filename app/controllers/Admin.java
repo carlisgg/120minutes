@@ -1,12 +1,15 @@
 package controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import models.Encuentro;
 import models.Tema;
 import models.Usuario;
 import notifiers.Mails;
 import play.mvc.Controller;
+import play.mvc.Router;
 import play.mvc.With;
 
 @With(Secure.class)
@@ -42,7 +45,11 @@ public class Admin extends Controller {
     		encuentro.save();
     		Mails.encuentro_aceptado(encuentro);
     	}
-        render("User/ficha.html", user);
+    	
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
     }
     
     public static void rechazarEncuentro(String idEncuentro) {
@@ -55,7 +62,10 @@ public class Admin extends Controller {
     		encuentro.save();
     		Mails.encuentro_rechazado(encuentro);
     	}
-    	render("User/ficha.html", user);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
     }
     
     public static void cancelarEncuentro(String idEncuentro) {
@@ -68,7 +78,10 @@ public class Admin extends Controller {
     		encuentro.save();
     		Mails.encuentro_cancelado(encuentro);
     	}
-    	render("User/ficha.html", user);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#aprendiendo");
     }
     
     public static void finalizarEncuentroOfertante(String idEncuentro) {
@@ -79,7 +92,10 @@ public class Admin extends Controller {
     		encuentro.estadoExperto=Encuentro.Estado.Finalizado;
     		encuentro.save();
     	}
-    	render("User/ficha.html", user);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
     }
     
     public static void finalizarEncuentroSolicitante(String idEncuentro) {
@@ -91,7 +107,10 @@ public class Admin extends Controller {
     		encuentro.save();
     		Mails.encuentro_cancelado(encuentro);
     	}
-    	render("User/ficha.html", user);
+    	Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+    	String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#aprendiendo");
     }
 
 }
