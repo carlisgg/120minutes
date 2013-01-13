@@ -125,6 +125,11 @@ header h2 span, header a{
     margin-bottom: 4px;
 }
 
+.arrowli li{
+	list-style: url("../images/ico-arrow.png");
+	list-style-type: none;
+	padding-bottom: 5px;
+	
 #menu-options {
     font-size: 0.9em;
 }
