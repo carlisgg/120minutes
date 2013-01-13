@@ -1,10 +1,18 @@
 <div class="row row-top-bottom-separator">
-    <div class="span8 offset2">
+    <div class="span6 offset1">
     #{form @Application.search()}
         <h4 class="condensed">Que quieres aprender?</h4>
-        <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
+        <input id="search-box" name="terms" type="text" class="span4 search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea..." value="${flash['terms']}">
         <button type="submit" id="search-button">
             Buscar <i class="icon-search icon-white"></i>
+        </button>
+    #{/form}
+    </div>
+    <div class="span4">
+    #{form @Application.search()}
+        <h4 class="condensed">Que quieres ense&ntilde;ar?</h4>
+        <button type="submit" id="add-button">
+            A&ntilde;adir <i class="icon-plus icon-white"></i>
         </button>
     #{/form}
     </div>

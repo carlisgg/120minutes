@@ -73,7 +73,8 @@ header h2 span, header a{
 	text-transform: uppercase;
 }
 
-#search-button{
+#search-button,
+#add-button{
 	background-color: #f60;
 	color: white;
 	border-style: none;
@@ -110,7 +111,7 @@ header h2 span, header a{
 
 .home-list{
 	padding-left: 30px;
-    color:  #ff6600;
+    color: #ff6600;
 }
 
 #menu-options {
