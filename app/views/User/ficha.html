@@ -1,41 +1,272 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Ficha de usuario' /}
 
+<div class="row row-top-bottom-separator">
+    <div class="span8 offset2">
+        #{form @Application.search()}
+            <h4 id="search-title">Que quieres aprender?</h4>
+            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
+            <button type="submit" id="search-button">
+                Buscar <i class="icon-search icon-white"></i>
+            </button>
+        #{/form}
+    </div>
+</div>
 
-${user.id} 
-<h1>${user.username}</h1>
-<h3>${user.descripcion}</h3>
-<p>${user.email}</p>
-<p>${user.creditos} creditos</p>
-<p>Temas ofertados</p>
-	<ul>
-        #{list items:user.temas, as:'tema'}
-       	<li>
-        	<b>${tema.titulo}</b> (${tema.descripcion})
-        </li>
-        #{/list}
-    </ul>
-<p>Me interesa aprender:</p>
-	<ul>
-        #{list items:user.intereses, as:'interes'}
-       	<li>
-        	${interes.descripcion}
-        </li>
-        #{/list}
-    </ul>
-<p>Encuentros como ofertante</p>
-	<ul>
-        #{list items:user.findEncuentrosOfrecidos(), as:'encuentroComoOfertante'}
-       	<li>
-        	<b>${encuentroComoOfertante.tema.titulo}</b> (${encuentroComoOfertante.solicitante.username})
-        </li>
-        #{/list}
-    </ul>
-<p>Encuentros como solicitante</p>
-	<ul>
-        #{list items:user.encuentrosSolicitados, as:'encuentroComoSolicitante'}
-       	<li>
-        	<b>${encuentroComoSolicitante.tema.titulo}</b> (${encuentroComoSolicitante.ofertante.username})
-        </li>
-        #{/list}
-    </ul>
+<div class="row">
+	<div class="span12 grey-background">
+	
+		<div class="row">
+			<div class="span10 offset1">
+				<h3>Tu perfil</h3>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="span2 offset1">
+				<img src="https://secure.gravatar.com/avatar/131ffcf8d544a449dde8516cb4067aac?s=420&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" class="img-polaroid">
+			</div>
+			<div class="span8">
+				<h4>${user.username}</h4>
+				<p>
+					${user.descripcion}
+				</p>
+			</div>
+		</div>
+		
+		<div class="row row-top-bottom-separator">
+			<div class="span10 offset1">
+				<div class="tabbable"> <!-- Only required for left/right tabs -->
+					<ul class="nav nav-tabs">
+						<li class="active">
+							<a href="#encuentros" data-toggle="tab">Encuentros</a>
+						</li>
+						<li>
+							<a href="#puedo" data-toggle="tab">Puedo ense&ntilde;ar</a>
+						</li>
+						<li>
+							<a href="#quiero" data-toggle="tab">Quiero aprender</a>
+						</li>
+					</ul>
+					<div class="tab-content profile-tab-content">
+						<div class="tab-pane active" id="encuentros">
+							
+							<h4>Como ofertante</h4>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>
+											<h4 class="position-ico ico-tema">Tema</h4>
+										</th>
+										<th>
+											<h4 class="position-ico ico-autor">Usuario</h4>
+										</th>
+										<th>
+											&nbsp;
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									#{list items:user.findEncuentrosOfrecidos(), as:'encuentroComoOfertante'}
+									<tr>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${encuentroComoOfertante.tema.titulo}
+							        			</a>
+							        		</h5>
+							        		<p>
+							        			${encuentroComoOfertante.tema.descripcion}
+							        		</p>
+										</td>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${encuentroComoOfertante.tema.titulo}
+							        			</a>
+							        		</h5>
+										</td>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox"> Completado
+											</label>
+											<h5>
+							        			Puntua el encuentro
+							        		</h5>
+							        		<div>
+							        			<ul class="horizontal-list">
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star icon-white"></i>
+							        				</li>
+							        			</ul>
+							        		</div>
+										</td>
+									</tr>
+									#{/list}
+								</tbody>
+							</table>
+							
+							<h4>Como solicitante</h4>
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>
+											<h4 class="position-ico ico-tema">Tema</h4>
+										</th>
+										<th>
+											<h4 class="position-ico ico-autor">Usuario</h4>
+										</th>
+										<th>
+											&nbsp;
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									#{list items:user.encuentrosSolicitados, as:'encuentroComoSolicitante'}
+									<tr>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${encuentroComoSolicitante.tema.titulo}
+							        			</a>
+							        		</h5>
+							        		<p>
+							        			${encuentroComoSolicitante.tema.descripcion}
+							        		</p>
+										</td>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${encuentroComoSolicitante.tema.titulo}
+							        			</a>
+							        		</h5>
+										</td>
+										<td>
+											<label class="checkbox">
+												<input type="checkbox"> Completado
+											</label>
+											<h5>
+							        			Puntua el encuentro
+							        		</h5>
+							        		<div>
+							        			<ul class="horizontal-list">
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star"></i>
+							        				</li>
+							        				<li>
+							        					<i class="icon-star icon-white"></i>
+							        				</li>
+							        			</ul>
+							        		</div>
+										</td>
+									</tr>
+									#{/list}
+								</tbody>
+							</table>
+							
+						</div>
+						<div class="tab-pane" id="puedo">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>
+											<h4 class="position-ico ico-tema">Tema</h4>
+										</th>
+										<th>
+											&nbsp;
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									#{list items:user.temas, as:'tema'}
+									<tr>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${tema.titulo}
+							        			</a>
+							        		</h5>
+							        		<p>
+							        			${tema.descripcion}
+							        		</p>
+										</td>
+										<td>
+											<a href="#"><i class="icon-remove"></i> Eliminar</a>
+											<br>
+											<a href="#"><i class="icon-pencil"></i> Editar</a>
+										</td>
+									</tr>
+									#{/list}
+									<tr>
+										<td colspan="2">
+											<a href="#"><i class="icon-plus"></i> A&ntilde;adir tema</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="tab-pane" id="quiero">
+							<table class="table table-condensed">
+								<thead>
+									<tr>
+										<th>
+											<h4 class="position-ico ico-tema">Tema</h4>
+										</th>
+										<th>
+											&nbsp;
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									#{list items:user.intereses, as:'interes'}
+									<tr>
+										<td>
+											<h5>
+							        			<a href="/">
+							        				${interes.descripcion}
+							        			</a>
+							        		</h5>
+										</td>
+										<td>
+											<a href="#"><i class="icon-remove"></i> Eliminar</a>
+											<br>
+											<a href="#"><i class="icon-pencil"></i> Editar</a>
+										</td>
+									</tr>
+									#{/list}
+									<tr>
+										<td colspan="2">
+											<a href="#"><i class="icon-plus"></i> A&ntilde;adir tema</a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
