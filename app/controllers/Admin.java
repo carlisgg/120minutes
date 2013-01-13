@@ -1,7 +1,9 @@
 package controllers;
 
+import models.Interes;
 import models.Tema;
 import models.Usuario;
+import play.data.validation.Valid;
 import play.mvc.Controller;
 
 import java.util.List;
@@ -15,6 +17,17 @@ public class Admin extends Controller {
 
         List<Tema> temasDeInteres = user.findTemasDeInteres();
         render(temasDeInteres);
+    }
+
+    public static void add_interes(@Valid Interes interes) {
+
+        flash.clear();
+        if (validation.hasErrors()) {
+
+        }
+
+
+
     }
 
 }

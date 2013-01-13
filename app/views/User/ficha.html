@@ -257,7 +257,12 @@
 									#{/list}
 									<tr>
 										<td colspan="2">
-											<a href="#"><i class="icon-plus"></i> A&ntilde;adir tema</a>
+											<a href="#"><i class="icon-plus"></i> A&ntilde;adir un interés</a>
+                                            #{form @Admin.addInteres}
+                                                <label for="">Describe lo que te interesa que te cuenten en 120 minutos</label>
+                                                <input name="interes.descripcion" type="text" size="140" />
+
+                                            #{/form}
 										</td>
 									</tr>
 								</tbody>
