@@ -158,6 +158,11 @@ header{
 	border-bottom-color: white !important;
 }
 
+#search-section .row {
+    width: 1170px;
+    margin: 20px auto;
+}
+
 #search-info>span{
 	margin: 10px;
 	font-size: 24px;
