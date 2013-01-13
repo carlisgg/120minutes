@@ -25,17 +25,22 @@ Tema(oferta3):
   titulo: 'mi segundo tema'
   descripcion: 'descripcion numero 2 distinta'
   experto: usuario2
+
+Tema(oferta4):
+  titulo: 'se mucho de jQuery'
+  descripcion: 'descripcion numero 2 distinta'
+  experto: usuario2
   
 Interes(interes1):
-  titulo: 'Ajax'
+  descripcion: 'Ajax'
   interesado: usuario1
   
 Interes(interes2):
-  titulo: 'jQuery'
+  descripcion: 'jQuery'
   interesado: usuario1
 
 Interes(interes3):
-  titulo: 'Google docs'
+  descripcion: 'Google docs'
   interesado: usuario1
   
 Encuentro(encuentro1):

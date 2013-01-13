@@ -15,11 +15,11 @@ ${user.id}
         </li>
         #{/list}
     </ul>
-<p>Temas solicitados</p>
+<p>Me interesa aprender:</p>
 	<ul>
         #{list items:user.intereses, as:'interes'}
        	<li>
-        	${interes.titulo}
+        	${interes.descripcion}
         </li>
         #{/list}
     </ul>

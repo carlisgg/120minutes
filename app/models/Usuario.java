@@ -1,5 +1,6 @@
 package models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -10,6 +11,8 @@ import notifiers.Mails;
 import play.data.validation.*;
 import play.db.jpa.Model;
 import play.libs.Codec;
+import play.modules.search.Query;
+import play.modules.search.Search;
 
 @Entity
 public class Usuario extends Model {
@@ -84,6 +87,18 @@ public class Usuario extends Model {
 
     public List<Encuentro> findEncuentrosOfrecidos() {
         return Encuentro.find("from Encuentro where tema.experto.id = ?", id).fetch();
+    }
+
+    public List<Tema> findTemasDeInteres() {
+        List<Tema> temasDeInteres = new ArrayList<Tema>();
+
+        for (Interes interes : intereses) {
+            Query query = Search.search("titulo:(" + interes.descripcion + ")", Tema.class);
+            List<Tema> temasParaInteres = query.fetch();
+            temasDeInteres.addAll(temasParaInteres);
+        }
+
+        return temasDeInteres;
     }
 
     static class MailUniqueCheck extends Check {
