@@ -85,6 +85,9 @@
 				        			<ul class="horizontal-list">
 				        				<li>
 				        					<i class="icon-heart"></i>
+                                            #{ifnot tema.posiblesIntercambios(session.username).empty}
+                                                SI!!!
+                                            #{/ifnot}
 				        				</li>
 				        				<li>
 				        					<i class="icon-map-marker"></i>
@@ -102,6 +105,11 @@
 		  				<strong><i class="icon-warning-sign"></i> Rayos!</strong> No hay ningún usuario que controle de lo que estás buscando :(
 					</div>
 			    #{/else}
+
+                No es lo que busco
+                #{form @User.add_interes(busqueda)}
+                    <input type="submit" value="recuerda esta búsqueda"/>
+                #{/form}
 			</div>
 		</div>
 		

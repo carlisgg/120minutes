@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.persistence.Query;
 
 import play.Play;
@@ -15,6 +16,9 @@ import play.db.jpa.Model;
 public class Busqueda extends Model {
 
     public String texto;
+
+    @ManyToOne
+    public Usuario interesado;
 
     public static List<Agrupacion> getMasBuscados() {
 
