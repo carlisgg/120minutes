@@ -1,18 +1,6 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Ficha de usuario' /}
 
-<div class="row row-top-bottom-separator">
-    <div class="span8 offset2">
-        #{form @Application.search()}
-            <h4 id="search-title">Que quieres aprender?</h4>
-            <input id="search-box" name="terms" type="text" class="input-xxlarge search-query" placeholder="Por ejemplo: HTML5, Calceta, cocina mediterránea...">
-            <button type="submit" id="search-button">
-                Buscar <i class="icon-search icon-white"></i>
-            </button>
-        #{/form}
-    </div>
-</div>
-
 <div class="row">
 	<div class="span12 grey-background">
 	
@@ -316,19 +304,25 @@
                                         <tr>
                                             <td colspan="2">
                                                 #{ifErrors}
-                                                    <p class="error">
+                                                    <span class="badge badge-important">
                                                     ${errors[0]}
-                                                    </p>
+                                                    </span>
                                                 #{/ifErrors}
 
                                                 #{form @User.add_tema()}
-                                                    <label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
-                                                    <input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
-                                                    <label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
-                                                    <input id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140" />
-
-                                                    <input type="submit" value="Añadir un tema" />
-
+                                                    <div class="control-group">
+                                                    	<label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
+                                                    	<input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
+                                                    </div>
+                                                    <div class="control-group">
+                                                    	<label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
+                                                    	<textarea id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140"></textarea>
+													</div>
+													<div class="control-group">
+                                                    	<button type="submit" class="btn">
+                                                    		<i class="icon-plus"></i> Añadir tema
+                                                    	</button>
+													</div>
                                                 #{/form}
 
                                             </td>
