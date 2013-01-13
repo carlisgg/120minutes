@@ -97,6 +97,7 @@ header{
 }
 
 #menu-options,
+.no-bullets,
 .horizontal-list{
 	list-style: none;
 	margin-top: 10px;
@@ -147,4 +148,20 @@ header{
 	margin-top: -20px;
 	margin-left: 0px;
 	padding: 20px;
+}
+
+.icon-17px{
+	font-size: 17px;
+}
+
+.icon-24px{
+	font-size: 24px;
+}
+
+.color-white{
+	color: white;
+}
+
+.color-orange{
+	color: #f60;
 }
