@@ -2330,10 +2330,12 @@ table th[class*="span"],
 
 .icon-ok {
   background-position: -288px 0;
+  color: #ff6600;
 }
 
 .icon-remove {
   background-position: -312px 0;
+    color: #ff6600;
 }
 
 .icon-zoom-in {

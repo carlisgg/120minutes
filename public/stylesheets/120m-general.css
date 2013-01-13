@@ -11,6 +11,10 @@
 	margin-bottom: 20px;
 }
 
+.row-extra-bottom-separator{
+    margin-bottom: 60px;
+}
+
 .row-top-bottom-separator {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -102,6 +106,10 @@ header{
 .home-list{
 	padding-left: 30px;
     color:  #ff6600;
+}
+
+.home-list li {
+    margin-bottom: 4px;
 }
 
 #menu-options {
@@ -198,4 +206,8 @@ header{
 
 .color-orange{
 	color: #f60;
+}
+
+.separador-acciones {
+    margin-top: 4px;
 }
