@@ -5,9 +5,11 @@ import models.Tema;
 import models.Usuario;
 import play.data.validation.Valid;
 import play.mvc.Controller;
+import play.mvc.With;
 
 import java.util.List;
 
+@With(Secure.class)
 public class Admin extends Controller {
 
     public static void index() {
@@ -19,15 +21,6 @@ public class Admin extends Controller {
         render(temasDeInteres);
     }
 
-    public static void add_interes(@Valid Interes interes) {
 
-        flash.clear();
-        if (validation.hasErrors()) {
-
-        }
-
-
-
-    }
 
 }

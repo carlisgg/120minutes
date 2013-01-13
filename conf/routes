@@ -9,6 +9,9 @@ GET     /application/search/{terms}             Application.search
 # User page
 GET     /user/{id}             		            User.ficha
 
+POST    /interes             		            User.add_interes
+POST    /tema             		                User.add_tema
+
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

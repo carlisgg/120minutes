@@ -19,7 +19,7 @@ import java.util.List;
 @Indexed
 public class Tema extends Model {
 
-    @Required
+    @Required(message = "debes poner un título al tema que puedes enseñar")
     @Field
     public String titulo;
 
