@@ -88,31 +88,63 @@
 							        		</h5>
 										</td>
 										<td>
-											<label class="checkbox">
-												<input type="checkbox"> Completado
-											</label>
-											<h5>
-							        			Puntua el encuentro
-							        		</h5>
-							        		<div>
-							        			<ul class="horizontal-list">
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star icon-white"></i>
-							        				</li>
-							        			</ul>
-							        		</div>
+											#{if (encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Solicitado)}
+											        <a href="@{Admin.confirmarEncuentro(encuentroComoOfertante.id)}">Confirmar</a><a href="@{Admin.rechazarEncuentro(encuentroComoOfertante.id)}">Rechazar</a>
+											#{/if}
+											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Rechazado))}
+													<p>Rechazado.</p>
+											#{/elseif}
+											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Cancelado))}
+													<p>Cancelado.</p>
+											#{/elseif}
+											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Aceptado))}
+													<a href="@{Admin.finalizarEncuentroOfertante(encuentroComoOfertante.id)}">Finalizado</a>
+											#{/elseif}
+											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Finalizado))}
+													<h5>
+									        			Puntua el encuentro
+									        		</h5>
+									        		<div>
+									        			<ul class="horizontal-list">
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star icon-white"></i>
+									        				</li>
+									        			</ul>
+									        		</div>
+											#{/elseif}
+											#{elseif ((encuentroComoOfertante.estadoOfertante == models.Encuentro.Estado.Votado))}
+									        		<div>
+									        			<ul class="horizontal-list">
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star icon-white"></i>
+									        				</li>
+									        			</ul>
+									        		</div>
+											#{/elseif}
 										</td>
 									</tr>
 									#{/list}
@@ -156,31 +188,63 @@
 							        		</h5>
 										</td>
 										<td>
-											<label class="checkbox">
-												<input type="checkbox"> Completado
-											</label>
-											<h5>
-							        			Puntua el encuentro
-							        		</h5>
-							        		<div>
-							        			<ul class="horizontal-list">
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star"></i>
-							        				</li>
-							        				<li>
-							        					<i class="icon-star icon-white"></i>
-							        				</li>
-							        			</ul>
-							        		</div>
+											#{if (encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Solicitado)}
+											        <p>Esperando confirmación.</p><a href="@{Admin.cancelarEncuentro(encuentroComoSolicitante.id)}">Cancelar</a>
+											#{/if}
+											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Rechazado))}
+													<p>Rechazado.</p>
+											#{/elseif}
+											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Cancelado))}
+													<p>Cancelado.</p>
+											#{/elseif}
+											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Aceptado))}
+													<a href="@{Admin.finalizarEncuentroSolicitante(encuentroComoSolicitante.id)}">Finalizado</a>
+											#{/elseif}
+											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Finalizado))}
+													<h5>
+									        			Puntua el encuentro
+									        		</h5>
+									        		<div>
+									        			<ul class="horizontal-list">
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star icon-white"></i>
+									        				</li>
+									        			</ul>
+									        		</div>
+											#{/elseif}
+											#{elseif ((encuentroComoSolicitante.estadoSolicitante == models.Encuentro.Estado.Votado))}
+									        		<div>
+									        			<ul class="horizontal-list">
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star"></i>
+									        				</li>
+									        				<li>
+									        					<i class="icon-star icon-white"></i>
+									        				</li>
+									        			</ul>
+									        		</div>
+											#{/elseif}
 										</td>
 									</tr>
 									#{/list}

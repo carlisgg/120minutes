@@ -67,4 +67,26 @@ public class Admin extends Controller {
     	}
         render(encuentro);
     }
+    
+    public static void finalizarEncuentroOfertante(String idEncuentro) {
+    	String userEmail = Security.connected();
+    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(idEncuentro);
+    	if (usuario.id==encuentro.tema.experto.id){
+    		encuentro.estadoExperto=Encuentro.Estado.Finalizado;
+    	}
+        render(encuentro);
+    }
+    
+    public static void finalizarEncuentroSolicitante(String idEncuentro) {
+    	String userEmail = Security.connected();
+    	Usuario usuario = Usuario.find("byEmail", userEmail).first();
+    	Encuentro encuentro = Encuentro.findById(idEncuentro);
+    	if (usuario.id==encuentro.tema.experto.id){
+    		encuentro.estadoInteresado=Encuentro.Estado.Finalizado;
+    		Mails.encuentro_cancelado(encuentro);
+    	}
+        render(encuentro);
+    }
+
 }
