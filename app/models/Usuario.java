@@ -49,6 +49,8 @@ public class Usuario extends Model {
 
         needConfirmation = Codec.UUID();
 
+        creditos = 1L;
+
         Usuario usuarioGrabado = save();
         Mails.confirm(usuarioGrabado);
 
