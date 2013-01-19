@@ -35,7 +35,7 @@ body{
 #main-section h4.condensed, #search-section h4.condensed {
     font-family: 'Open Sans Condensed', sans-serif;
     font-weight: bold;
-    font-size: 23px;
+    font-size: 24px;
     text-transform: none;
 }
 
@@ -49,19 +49,16 @@ header h2 span, header a{
 	text-shadow: none !important;
 }
 
-#header-slogan {
-	font-weight: 300;
-	text-transform: uppercase;
+#header-slogan span {
+	font-size: 32px;
+    font-weight: bold;
 	color: white;
-	font-size: 20px;
 }
 
-.navbar-interiores{
-	margin:0px;
-}
-
-.navbar-interiores #brand span {
-    font-size: 26px;
+#header-slogan-interior span {
+	font-size: 28px;
+    font-weight: bold;
+	color: white;
 }
 
 .grey-background{
@@ -90,6 +87,7 @@ header h2 span, header a{
 	-moz-border-radius: 100px;
 	border-radius: 100px;
 	padding: 4px 20px 4px;
+	margin-top: 2px;
 }
 
 .position-ico{
@@ -183,7 +181,6 @@ header h2 span, header a{
 }
 
 #search-section .row {
-    width: 1170px;
     margin: 20px auto;
 }
 

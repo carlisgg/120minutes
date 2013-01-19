@@ -62,14 +62,14 @@
 	<header id="header">
 	    <div class="container">
 			
-			#{if request.action=='Application.index'}
 			<div class="navbar">
-			#{/if}
-			#{else}
-			<div class="navbar navbar-interiores">
-			#{/else}
 				<div class="row">
-					<div class="span10 offset1">
+					<div class="span1 offset1">
+						<a class="brand visible-phone span-center" id="brand" href="/" title="120minutes.org">
+							<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
+						</a>
+					</div>
+					<div class="span8">
 					#{if session.username }
 		                #{include 'headers/headerLogin.html'/}
 		            #{/if}
@@ -78,14 +78,14 @@
 		            #{/else}
 		            </div>
 				</div>
-				<div class="row">
+				<div class="row hidden-phone">
 					
 					#{if request.action=='Application.index'}
 					<div class="span10 offset1">
 						<h2 id="header-slogan">
 							<a class="brand" id="brand" href="/" title="120minutes.org">
 								<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-								<span class="hidden-phone color-white">
+								<span class="color-white">
 									Comparte lo que sabes en 2 horas
 								</span>
 							</a>
@@ -94,10 +94,10 @@
 					#{/if}
 					#{else}
 					<div class="span10 offset1">
-						<h2 id="header-slogan">
+						<h2 id="header-slogan-interior">
 							<a class="brand" id="brand" href="/" title="120minutes.org">
 								<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
-								<span class="hidden-phone color-white">
+								<span class="color-white">
 									Comparte lo que sabes en 2 horas
 								</span>
 							</a>
@@ -113,19 +113,21 @@
     </header>
 
 	<section id="search-section">
+		<div class="container">
 		#{include 'parts/searchBox.html'/}
+		</div>
 	</section>
 	
 	<section id="main-section" class="grey-background">
 	    <div class="container">
-			#{doLayout /}
+		#{doLayout /}
 	    </div>
     </section>
 	
 	<footer>
 	    <div class="container">
 	        <div class="row row-top-bottom-separator">
-	            <div class="span4">
+	            <div class="span4 offset1">
 	                <a href="@{Application.quienes_somos()}" title="quienes somos">¿Quienes somos?</a>
 	            </div>
 	        </div>
