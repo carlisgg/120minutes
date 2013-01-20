@@ -1,6 +1,8 @@
 
-.indent {
-	margin-left: 0px;
+/*** Estilos de uso general **/
+
+.row-mini-top-separator {
+	margin-top: 5px;
 }
 
 .row-top-separator {
@@ -26,17 +28,56 @@
 	text-align: center;
 }
 
+.padding10px{
+	padding: 10px;
+}
+
+.padding20px{
+	padding: 20px;
+}
+
+.padding50px{
+	padding: 50px;
+}
+
+.grey-background{
+	background-color:#EAEEEF;
+}
+
+.white-background{
+	background-color:#FFFFFF;
+}
+
+.color-white{
+	color: white;
+}
+
+.color-orange{
+	color: #f60;
+}
+
+.color-green{
+	color: #1E7681;
+}
+
+.icon-17px{
+	font-size: 17px;
+}
+
+.icon-24px{
+	font-size: 24px;
+}
+
+.condensed{
+	font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/*** Estilos principales ***/
+
 body{
 	background-color: white;
 	font-family: 'Open Sans', sans-serif;
 	color: #314351;
-}
-
-#main-section h4.condensed, #search-section h4.condensed {
-    font-family: 'Open Sans Condensed', sans-serif;
-    font-weight: bold;
-    font-size: 24px;
-    text-transform: none;
 }
 
 header{
@@ -49,46 +90,7 @@ header h2 span, header a{
 	text-shadow: none !important;
 }
 
-#header-slogan span {
-	font-size: 32px;
-    font-weight: bold;
-	color: white;
-}
-
-#header-slogan-interior span {
-	font-size: 28px;
-    font-weight: bold;
-	color: white;
-}
-
-.grey-background{
-	background-color:#EAEEEF;
-}
-
-.white-background{
-	background-color:#FFFFFF;
-}
-
-#main-section h3{
-	color: #f60;
-}
-
-#main-section h4{
-	font-weight: 300;
-	text-transform: uppercase;
-}
-
-#search-button,
-#add-button{
-	background-color: #f60;
-	color: white;
-	border-style: none;
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	border-radius: 100px;
-	padding: 4px 20px 4px;
-	margin-top: 2px;
-}
+/*** Iconos ***/
 
 .position-ico{
 	background-repeat: no-repeat;
@@ -115,6 +117,34 @@ header h2 span, header a{
 	background-image: url("../images/ico-autor.png");
 }
 
+/*** Votaci—n estrellas ***/
+
+.rating {
+	unicode-bidi: bidi-override;
+	direction: rtl;
+}
+
+.rating > a {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+
+.rating > a:hover,
+.rating > a:hover ~ a {
+	color: transparent;
+}
+
+.rating > a:hover:before,
+.rating > a:hover ~ a:before {
+	content: "\2605";
+	position: absolute;
+	left: 0;
+	color: #f60;
+}
+
+/*** Estilos espec’ficos ***/
+
 .home-list{
 	padding-left: 30px;
     color: #ff6600;
@@ -124,10 +154,40 @@ header h2 span, header a{
     margin-bottom: 4px;
 }
 
-.arrowli li{
-	list-style: url("../images/ico-arrow.png");
-	list-style-type: none;
-	padding-bottom: 5px;
+#header-slogan span {
+	font-size: 32px;
+    font-weight: bold;
+	color: white;
+}
+
+#header-slogan-interior span {
+	font-size: 28px;
+    font-weight: bold;
+	color: white;
+}
+
+#main-section h4.condensed, #search-section h4.condensed {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    text-transform: none;
+}
+
+#main-section h4{
+	font-weight: 300;
+	text-transform: uppercase;
+}
+
+#search-button,
+#add-button{
+	background-color: #f60;
+	color: white;
+	border-style: none;
+	-webkit-border-radius: 100px;
+	-moz-border-radius: 100px;
+	border-radius: 100px;
+	padding: 4px 20px 4px;
+	margin-top: 2px;
 }
 
 #menu-options .menu-creditos {
@@ -180,47 +240,11 @@ header h2 span, header a{
 	border-bottom-color: white !important;
 }
 
-#search-section .row {
-    margin: 20px auto;
-}
-
 #search-info>span{
 	margin: 10px;
 	font-size: 24px;
 }
 
-#search-results{
-	background-color: white;
-}
-
-#search-results tbody tr td {
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-.profile-tab-content{
-	background-color: white;
-	margin-top: -20px;
-	margin-left: 0px;
-	padding: 20px;
-}
-
-.icon-17px{
-	font-size: 17px;
-}
-
-.icon-24px{
-	font-size: 24px;
-}
-
-.color-white{
-	color: white;
-}
-
-.color-orange{
-	color: #f60;
-}
-
-.separador-acciones {
-    margin-top: 4px;
+.profile-tab-content h5{
+	color: #1E7681;
 }

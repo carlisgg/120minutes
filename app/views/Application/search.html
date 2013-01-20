@@ -51,12 +51,12 @@
 									<div class="modal-body">
 										<p>Te ponemos en contacto con ${tema.experto.username}, a ambos enviamos un mail para que aprendais. Muchas gracias.</p>
 										<a href="@{Admin.solicitarEncuentro(tema.id)}" class="open-modal">
-			        						Enviar mail
+			        						Enviar mail <i class="icon-envelope"></i>
 			        					</a>
 									</div>
 									<div class="modal-footer">
 										<button class="btn" data-dismiss="modal" aria-hidden="true">
-											<i class="icon-remove"></i> Cerrar
+											Cerrar <i class="icon-remove"></i>
 										</button>
 									</div>
 								</div>
@@ -70,15 +70,13 @@
 				        				${tema.experto.username}
 				        			</a>
 				        		</h5>
-				        		<div>
-				        			<span class="rating">
-										<span class="icon-star color-orange"></span>
-										<span class="icon-star color-orange"></span>
-										<span class="icon-star color-orange"></span>
-										<span class="icon-star"></span>
-										<span class="icon-star"></span>
-									</span>
-				        		</div>
+				        		<div class="rating">
+									<span><i class="icon-star icon-17px"></i></span>
+									<span><i class="icon-star icon-17px"></i></span>
+									<span><i class="icon-star color-orange icon-17px"></i></span>
+									<span><i class="icon-star color-orange icon-17px"></i></span>
+									<span><i class="icon-star color-orange icon-17px"></i></span>
+								</div>
 							</td>
 							<td>
 
@@ -101,23 +99,24 @@
 				</table>
 				#{/ifnot}
 				#{else}	
-			   		<div class="alert">
+			   		<div class="alert alert-block span-center">
 		  				<button type="button" class="close" data-dismiss="alert">&times;</button>
-		  				<strong><i class="icon-warning-sign"></i> Rayos!</strong> No hay ning√∫n usuario que controle de lo que est√°s buscando :(
+		  				<strong><i class="icon-warning-sign"></i> Rayos!!</strong> No hay ning&uacute;n usuario que controle de lo que est&aacute;s buscando :(
 					</div>
-			    #{/else}
-
-                
+			    #{/else} 
 			</div>
 		</div>
-		<div class="row">
+		<div class="row row-top-bottom-separator">
 			<div class="span10 offset1">
-                No encuentras lo que buscas?, guarda esta búsqueda para aumentar las posibilidades de intercambio
-                #{form @User.add_interes(busqueda)}
-                   	<button id="remember-search" class="btn" type="submit">
-                   		<i class="icon-pushpin"></i> Recuerda esta busqueda
-                   	</button>
-                #{/form}
+				<div class="alert alert-success span-center">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+	                <strong>Recuerda!!</strong> <span>Puedes guardar esta búsqueda en la <a href="@{User.ficha()}#quiero">lista de cosas que te interesa aprender</a> para aumentar las posibilidades de intercambio</span>
+	                #{form @User.add_interes(busqueda)}
+	                   	<button id="remember-search" class="btn padding10px row-top-separator" type="submit">
+	                   		Guardar esta busqueda <i class="icon-pushpin color-orange"></i>
+	                   	</button>
+	                #{/form}
+                </div>
 			</div>
 		</div>
 		

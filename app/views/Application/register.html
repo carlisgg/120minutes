@@ -1,37 +1,56 @@
 #{extends 'main.html' /}
 #{set title:'120minutos - Registro' /}
 
-<div id="subheader"></div>
-<div id="content" class="big-padding">
-    <h1 class="nobr">Registrarse</h1><p class="nobr">o <a href="@{Secure.login}">Entrar</a></p>
-    <p>Regístrate en un solo paso, una vez que entres por primera vez, podrás completar toda la información de tu perfil.</p>
-    <form action="@{Application.signup()}" class="inner-combo">
-
-    #{ifErrors}
-        <p class="error">
-        ${errors[0]}
-        </p>
-    #{/ifErrors}
-
-
-        <div class="form-item">
-            <label>Usuario</label>
-            <input type="text" name="usuario.username" value="${flash['usuario.username']}" size="35"></input>
-        </div>
-        <div class="form-item">
-            <label>Correo electrónico</label>
-            <input type="text" name="usuario.email" id="email" value="${flash['usuario.email']}" size="35"></input>
-        </div>
-        <div class="form-item">
-            <label>Contraseña</label>
-            <input type="password" name="usuario.password"></input>
-        </div>
-        <div class="form-item">
-            <label>Repetir Contraseña</label>
-            <input type="password" name="repetirPassword"></input>
-        </div>
-
-        <input type="submit" class="big-button" value="Registrarme"></input>
-
-    </form>
+<div class="row row-top-bottom-separator">
+	<div class="span10 offset1">
+		<h3>Registrarse</h3>
+		<p>
+			O <a href="@{Secure.login}">Entrar</a>
+		</p>
+		<p>
+			Reg&iacute;strate en un solo paso, una vez que entres por primera vez, podr&aacute;s completar toda la informaci&oacute;n de tu perfil.
+		</p>
+		
+		#{ifErrors}
+		<div class="alert alert-error">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<span>${errors[0]}</span>
+		</div>
+		#{/ifErrors}
+		
+		<form action="@{Application.signup()}" class="inner-combo">
+			<div class="control-group" id="username-field">
+		    	<label class="control-label" for="usuario.username">Nombre de usuario</label>
+		    	<div class="controls">
+		    		<input type="text" name="usuario.username" id="usuario.username" value="${flash['usuario.username']}" size="35" placeholder="Ej. Juan L&oacute;pez"></input>
+		    	</div>
+		    </div>
+		    <div class="control-group" id="username-field">
+		    	<label class="control-label" for="usuario.email">Correo electr&oacute;nico</label>
+		    	<div class="controls">
+		    		<input type="text" name="usuario.email" id="usuario.email" value="${flash['usuario.email']}" size="35" placeholder="ejemplo@ejemplo.com"></input>
+		    	</div>
+		    </div>
+		    <div class="control-group" id="username-field">
+		    	<label class="control-label" for="usuario.password">Contrase&ntilde;a</label>
+		    	<div class="controls">
+		    		<input type="password" name="usuario.password" id="usuario.password" size="35" placeholder="Contrase&ntilde;a"></input>
+		    	</div>
+		    </div>
+		    <div class="control-group" id="username-field">
+		    	<label class="control-label" for="repetirPassword">Repetir contrase&ntilde;a</label>
+		    	<div class="controls">
+		    		<input type="password" name="repetirPassword" id="repetirPassword" size="35" placeholder="Repetir contrase&ntilde;a"></input>
+		    	</div>
+		    </div>
+		    <div class="control-group" id="signup-field">
+				<div class="controls">
+					<button id="register-button" class="btn" type="submit">
+						Registrarme <i class="icon-ok color-orange"></i>
+					</button>
+				</div>
+			</div>
+		</form>
+		
+	</div>
 </div>

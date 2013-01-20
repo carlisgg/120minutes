@@ -17,9 +17,26 @@ $(document).ready(function() {
     $('a[data-toggle="tab"], a[data-toggle="pill"]').on('shown', function(){
         window.location.hash = $(this).attr('href').replace('#', '');
     });
-	
-	$("#add-tema-puedo").click(function() {
-		alert("jo");
-	});
-
+    
+    $("#add-topic-link").click(function() {
+    	$("#add-topic-form").show("slow");
+    });
+    
+    var profileInfoEdit=false;
+    $("#profile-info-button").click(function() {
+    	if(!profileInfoEdit){
+	    	$("#profile-info-view").fadeOut('slow', function() {
+	    		$("#profile-info-edit").fadeIn('slow');
+	    		$("#profile-info-button i").removeClass("icon-pencil").addClass("icon-arrow-left");
+	    		profileInfoEdit=true;
+	        });
+    	}else{
+    		$("#profile-info-edit").fadeOut('slow', function() {
+	    		$("#profile-info-view").fadeIn('slow');
+	    		$("#profile-info-button i").removeClass("icon-arrow-left").addClass("icon-pencil");
+	    		profileInfoEdit=false;
+	        });
+    	}
+    });
+    
 });

@@ -14,7 +14,7 @@
     <meta name="Locality" content="Coru&ntilde;a, Espa&ntilde;a"/>
     <meta name="VW96.objecttype" content="Homepage"/>
 
-    <meta name="title" content="120minutes.org - Inicio"/>
+    <meta name="title" content="#{get 'title' /}"/>
     <meta name="description" content="Comparte lo que sabes en 2 horas">
     <meta name="keywords" content="120minutes, conocimiento, compartir, intercambio, aprender">
 
@@ -30,6 +30,7 @@
 
     <!-- bootstrap -->
     <script src="@{'/public/javascripts/bootstrap.min.js'}" type="text/javascript"></script>
+    <script src="@{'/public/javascripts/bootstrap-fileupload.js'}" type="text/javascript"></script>
     
     <!-- page scripts -->
     <script src="@{'/public/javascripts/120m-functions.js'}" type="text/javascript"></script>
@@ -45,6 +46,8 @@
     
     <link href="@{'/public/stylesheets/120m-bootstrap.css'}" rel="stylesheet">
     <link href="@{'/public/stylesheets/120m-bootstrap-responsive.css'}" rel="stylesheet">
+    <link href="@{'/public/stylesheets/jasny-bootstrap.css'}" rel="stylesheet">
+	<link href="@{'/public/stylesheets/jasny-bootstrap-responsive.css'}" rel="stylesheet">
 	<link href="@{'/public/stylesheets/font-awesome.min.css'}" rel="stylesheet">
 
     <!-- Page Style -->
@@ -61,15 +64,14 @@
 	
 	<header id="header">
 	    <div class="container">
-			
-			<div class="navbar">
-				<div class="row">
-					<div class="span1 offset1">
-						<a class="brand visible-phone span-center" id="brand" href="/" title="120minutes.org">
-							<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
-						</a>
-					</div>
-					<div class="span8">
+			<div class="row">
+				<div class="span1 offset1">
+					<a class="brand visible-phone span-center" id="brand" href="/" title="120minutes.org">
+						<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
+					</a>
+				</div>
+				<div class="span9">
+					<div class="navbar">
 					#{if session.username }
 		                #{include 'headers/headerLogin.html'/}
 		            #{/if}
@@ -77,38 +79,34 @@
 		                #{include 'headers/headerLogout.html'/}
 		            #{/else}
 		            </div>
-				</div>
-				<div class="row hidden-phone">
-					
-					#{if request.action=='Application.index'}
-					<div class="span10 offset1">
-						<h2 id="header-slogan">
-							<a class="brand" id="brand" href="/" title="120minutes.org">
-								<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
-								<span class="color-white">
-									Comparte lo que sabes en 2 horas
-								</span>
-							</a>
-						</h2>
-					</div>
-					#{/if}
-					#{else}
-					<div class="span10 offset1">
-						<h2 id="header-slogan-interior">
-							<a class="brand" id="brand" href="/" title="120minutes.org">
-								<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
-								<span class="color-white">
-									Comparte lo que sabes en 2 horas
-								</span>
-							</a>
-						</h2>
-					</div>
-					#{/else}
-		
 	            </div>
-			
 			</div>
-	
+			<div class="row hidden-phone">
+				#{if request.action=='Application.index'}
+				<div class="span10 offset1">
+					<h2 id="header-slogan">
+						<a class="brand" id="brand" href="/" title="120minutes.org">
+							<img src="@{'/public/images/logo-portada.png'}" alt="120minutes.org">
+							<span class="color-white">
+								Comparte lo que sabes en 2 horas
+							</span>
+						</a>
+					</h2>
+				</div>
+				#{/if}
+				#{else}
+				<div class="span10 offset1">
+					<h2 id="header-slogan-interior">
+						<a class="brand" id="brand" href="/" title="120minutes.org">
+							<img src="@{'/public/images/logo-interiores.png'}" alt="120minutes.org">
+							<span class="color-white">
+								Comparte lo que sabes en 2 horas
+							</span>
+						</a>
+					</h2>
+				</div>
+				#{/else}
+            </div>
 	    </div>
     </header>
 

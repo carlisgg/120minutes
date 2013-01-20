@@ -7,7 +7,9 @@
 		<div class="row">
 			<div class="span10 offset1">
             #{if user.email == session.username}
-				<h3>Tu perfil</h3>
+				<h3>
+					Tu perfil <a class="btn" id="profile-info-button"><i class="icon-pencil color-orange icon-17px"></i></a>
+				</h3>
             #{/if}
             #{else}
                 <h3>Perfil de usuario</h3>
@@ -15,7 +17,7 @@
 			</div>
 		</div>
 		
-		<div class="row">
+		<div class="row" id="profile-info-view">
 			<div class="span2 offset1">
 				<img src="@{'/public/images/recurso-foto-ficha.gif'}" class="img-polaroid">
 			</div>
@@ -26,6 +28,80 @@
 				</p>
 			</div>
 		</div>
+		
+		#{if user.email == session.username}
+		<div class="row" id="profile-info-edit" style="display:none;">
+			<form id="profile-info-edit-form" name="profile-info-edit" method="post">
+				<div class="span2 offset1">
+					<div class="control-group">
+						<div id="profilePicture" class="fileupload fileupload-new" data-provides="fileupload">
+							<div class="row">
+								<div class="span2 fileupload-new thumbnail">
+									<img src="@{'/public/images/recurso-foto-ficha.gif'}" class="img-polaroid" alt="Foto de perfil">
+								</div>
+								<div class="span2 fileupload-preview fileupload-exists thumbnail">
+								</div>
+							</div>
+							<div class="row">
+								<div class="span2">
+									<span class="btn btn-file">
+										<span class="fileupload-new">Examinar <i class="icon-folder-open color-orange"></i></span>
+										<span class="fileupload-exists">Cambiar <i class="icon-refresh color-orange"></i></span>
+										<input type="file" name="user.picture" id="user.picture" />
+									</span>
+								</div>
+							</div>
+							<div class="row row-mini-top-separator">
+								<div class="span2">
+									<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">
+										Eliminar <i class="icon-remove color-orange"></i>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="span8">
+					<div class="control-group span6" id="username-field">
+				    	<label class="control-label" for="user.username">Nombre de usuario</label>
+				    	<div class="controls">
+				    		<input type="text" id="user.username" name="user.username" value="${user.username}" placeholder="Ej: Juan L&oacute;pez" />		
+				    	</div>
+				    </div>
+				    <div class="control-group span6" id="descripcion-field">
+				    	<label class="control-label" for="user.descripcion">Biogra&iacute;a</label>
+				    	<div class="controls">
+				    		<textarea id="user.descripcion" name="user.descripcion" class="span6" rows="3" placeholder="Algo sobre t&iacute;...">${user.descripcion}</textarea>	
+				    	</div>
+				    </div>
+				    <div class="control-group span6" id="submit-changes-field">
+						<div class="pull-right">
+							<button type="submit" id="submit-changes" class="btn">
+								Ok <i class="icon-ok color-orange"></i>
+							</button>
+							<a href="#remove-profile-modal" role="button" data-toggle="modal" id="remove-profile" class="btn btn-danger">
+								Eliminar Cuenta <i class="icon-remove color-white"></i>
+							</a>
+							<!-- Modal Remove Profile -->
+							<div id="remove-profile-modal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+									<h4>Eliminar cuenta</h4>
+								</div>
+								<div class="modal-body">
+									<p>Est&aacute;s seguro de que quieres eliminar la cuenta? Te enviaremos un mensaje a tu correo electr&oacute;nico con un enlace para que puedas eliminar tu cuenta.</p>
+								</div>
+								<div class="modal-footer">
+									<button class="btn" data-dismiss="modal" aria-hidden="true">Cancelar <i class="icon-remove color-orange"></i></button>
+									<button class="btn">Aceptar <i class="icon-ok color-orange"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+		#{/if}
 		
 		<div class="row row-top-bottom-separator">
 			<div class="span10 offset1">
@@ -48,9 +124,8 @@
                             </li>
                         #{/if}
 					</ul>
-
-
-					<div class="tab-content profile-tab-content">
+					
+					<div class="tab-content profile-tab-content white-background padding10px">
 
                     #{if user.email == session.username}
 						<div class="tab-pane active" id="ensenando">
@@ -73,9 +148,7 @@
 									<tr>
 										<td>
 											<h5>
-							        			<a href="/">
-							        				${encuentroComoOfertante.tema.titulo}
-							        			</a>
+							        			${encuentroComoOfertante.tema.titulo}
 							        		</h5>
 							        		<p>
 							        			${encuentroComoOfertante.tema.descripcion}
@@ -115,46 +188,22 @@
 												<h5>
 								        			Puntua el encuentro
 								        		</h5>
-								        		<div>
-								        			<ul class="horizontal-list">
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star icon-white"></i>
-								        				</li>
-								        			</ul>
-								        		</div>
+								        		<div class="rating">
+													<a href="#"><i class="icon-star icon-17px"></i></a>
+													<a href="#"><i class="icon-star icon-17px"></i></a>
+													<a href="#"><i class="icon-star icon-17px"></i></a>
+													<a href="#"><i class="icon-star icon-17px"></i></a>
+													<a href="#"><i class="icon-star icon-17px"></i></a>
+												</div>
 											#{/elseif}
 											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Votado))}
-								        		<div>
-								        			<ul class="horizontal-list">
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star"></i>
-								        				</li>
-								        				<li>
-								        					<i class="icon-star icon-white"></i>
-								        				</li>
-								        			</ul>
-								        		</div>
+								        		<div class="rating">
+													<span><i class="icon-star icon-17px"></i></span>
+													<span><i class="icon-star icon-17px"></i></span>
+													<span><i class="icon-star icon-17px"></i></span>
+													<span><i class="icon-star icon-17px"></i></span>
+													<span><i class="icon-star icon-17px"></i></span>
+												</div>
 											#{/elseif}
 										</td>
 									</tr>
@@ -182,9 +231,7 @@
 									<tr>
 										<td>
 											<h5>
-							        			<a href="/">
-							        				${encuentroComoSolicitante.tema.titulo}
-							        			</a>
+							        			${encuentroComoSolicitante.tema.titulo}
 							        		</h5>
 							        		<p>
 							        			${encuentroComoSolicitante.tema.descripcion}
@@ -220,46 +267,22 @@
 													<h5>
 									        			Puntua el encuentro
 									        		</h5>
-									        		<div>
-									        			<ul class="horizontal-list">
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star icon-white"></i>
-									        				</li>
-									        			</ul>
-									        		</div>
+									        		<div class="rating">
+														<a href="#"><i class="icon-star icon-17px"></i></a>
+														<a href="#"><i class="icon-star icon-17px"></i></a>
+														<a href="#"><i class="icon-star icon-17px"></i></a>
+														<a href="#"><i class="icon-star icon-17px"></i></a>
+														<a href="#"><i class="icon-star icon-17px"></i></a>
+													</div>
 											#{/elseif}
 											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Votado))}
-									        		<div>
-									        			<ul class="horizontal-list">
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star"></i>
-									        				</li>
-									        				<li>
-									        					<i class="icon-star icon-white"></i>
-									        				</li>
-									        			</ul>
-									        		</div>
+									        		<div class="rating">
+														<span><i class="icon-star icon-17px"></i></span>
+														<span><i class="icon-star icon-17px"></i></span>
+														<span><i class="icon-star icon-17px"></i></span>
+														<span><i class="icon-star icon-17px"></i></span>
+														<span><i class="icon-star icon-17px"></i></span>
+													</div>
 											#{/elseif}
 										</td>
 									</tr>
@@ -275,7 +298,7 @@
 								<thead>
 									<tr>
 										<th>
-											<h4 class="position-ico ico-tema">Temas de los que puedo enseñar</h4>
+											<h4 class="position-ico ico-tema">Temas de los que puedo ense&ntilde;ar</h4>
 										</th>
 										<th>
 											&nbsp;
@@ -307,28 +330,36 @@
                                     #{if user.email == session.username}
                                         <tr>
                                             <td colspan="2">
+                                                
+                                                <h4 class="position-ico ico-tema" style="cursor:pointer;">
+										        	<a id="add-topic-link">
+										        		A&ntilde;adir tema
+										        	</a>
+										        </h4>
+                                                
                                                 #{ifErrors}
-                                                    <span class="badge badge-important">
-                                                    ${errors[0]}
-                                                    </span>
-                                                #{/ifErrors}
-
-                                                #{form @User.add_tema()}
-                                                    <div class="control-group">
-                                                    	<label for="titulo">Dinos lo que puedes enseñar en 120 minutos</label>
-                                                    	<input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
+                                                    <div class="alert alert-error">
+                                                    	${errors[0]}
                                                     </div>
-                                                    <div class="control-group">
-                                                    	<label for="descripcion">Describe un poco más cómo lo vas a hacer</label>
-                                                    	<textarea id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140"></textarea>
-													</div>
-													<div class="control-group">
-                                                    	<button type="submit" class="btn">
-                                                    		<i class="icon-plus"></i> Añadir tema
-                                                    	</button>
-													</div>
-                                                #{/form}
-
+                                                #{/ifErrors}
+												
+												<div id="add-topic-form" style="display:none;">
+	                                                #{form @User.add_tema()}
+	                                                    <div class="control-group">
+	                                                    	<label for="titulo">Dinos lo que puedes ense&ntilde;ar en 120 minutos</label>
+	                                                    	<input id="titulo" name="tema.titulo" value="${flash['tema.titulo']}" type="text" size="140" />
+	                                                    </div>
+	                                                    <div class="control-group">
+	                                                    	<label for="descripcion">Describe un poco m&aacute;s c&oacute;mo lo vas a hacer</label>
+	                                                    	<textarea id="descripcion" name="tema.descripcion" value="${flash['tema.descripcion']}" type="text" size="140"></textarea>
+														</div>
+														<div class="control-group">
+	                                                    	<button type="submit" class="btn">
+	                                                    		A&ntilde;adir tema <i class="icon-plus color-orange"></i>
+	                                                    	</button>
+														</div>
+	                                                #{/form}
+												</div>
                                             </td>
                                         </tr>
                                     #{/if}
