@@ -13,3 +13,5 @@ bin
 eclipse
 120minutes.iml
 120minutes.ipr
+120minutes.iws
+lib/search.jar
