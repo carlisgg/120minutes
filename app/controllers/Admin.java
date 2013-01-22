@@ -125,4 +125,34 @@ public class Admin extends Controller {
         redirect(url + "#aprendiendo");
     }
 
+    public static void puntuarEncuentroOfertante(String idEncuentro, String puntuacion) {
+        String userEmail = Security.connected();
+        Usuario user = Usuario.find("byEmail", userEmail).first();
+        Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+        if (user.id==encuentro.tema.experto.id){
+            encuentro.estadoExperto=Encuentro.Estado.Votado;
+            encuentro.puntuacionInteresado = Integer.valueOf(puntuacion);
+            encuentro.save();
+        }
+        Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+        String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#ensenando");
+    }
+
+    public static void puntuarEncuentroSolicitante(String idEncuentro, String puntuacion) {
+        String userEmail = Security.connected();
+        Usuario user = Usuario.find("byEmail", userEmail).first();
+        Encuentro encuentro = Encuentro.findById(Long.valueOf(idEncuentro));
+        if (user.id==encuentro.interesado.id){
+            encuentro.estadoInteresado=Encuentro.Estado.Votado;
+            encuentro.puntuacionExperto = Integer.valueOf(puntuacion);
+            encuentro.save();
+        }
+        Map<String, Object> args = new HashMap<String, Object>();
+        args.put("id", user.id);
+        String url = Router.getFullUrl("User.ficha", args);
+        redirect(url + "#aprendiendo");
+    }
+
 }

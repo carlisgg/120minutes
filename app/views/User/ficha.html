@@ -189,14 +189,15 @@
 								        			Puntua el encuentro
 								        		</h5>
 								        		<div class="rating">
-													<a href="#"><i class="icon-star icon-17px"></i></a>
-													<a href="#"><i class="icon-star icon-17px"></i></a>
-													<a href="#"><i class="icon-star icon-17px"></i></a>
-													<a href="#"><i class="icon-star icon-17px"></i></a>
-													<a href="#"><i class="icon-star icon-17px"></i></a>
+													<a href="@{Admin.puntuarEncuentroOfertante(encuentroComoOfertante.id,5)}"><i class="icon-star icon-17px"></i></a>
+													<a href="@{Admin.puntuarEncuentroOfertante(encuentroComoOfertante.id,4)}"><i class="icon-star icon-17px"></i></a>
+													<a href="@{Admin.puntuarEncuentroOfertante(encuentroComoOfertante.id,3)}"><i class="icon-star icon-17px"></i></a>
+													<a href="@{Admin.puntuarEncuentroOfertante(encuentroComoOfertante.id,2)}"><i class="icon-star icon-17px"></i></a>
+													<a href="@{Admin.puntuarEncuentroOfertante(encuentroComoOfertante.id,1)}#"><i class="icon-star icon-17px"></i></a>
 												</div>
 											#{/elseif}
 											#{elseif ((encuentroComoOfertante.estadoExperto == models.Encuentro.Estado.Votado))}
+                                                <p>Votaste ${encuentroComoOfertante.puntuacionInteresado}</p>
 								        		<div class="rating">
 													<span><i class="icon-star icon-17px"></i></span>
 													<span><i class="icon-star icon-17px"></i></span>
@@ -268,14 +269,15 @@
 									        			Puntua el encuentro
 									        		</h5>
 									        		<div class="rating">
-														<a href="#"><i class="icon-star icon-17px"></i></a>
-														<a href="#"><i class="icon-star icon-17px"></i></a>
-														<a href="#"><i class="icon-star icon-17px"></i></a>
-														<a href="#"><i class="icon-star icon-17px"></i></a>
-														<a href="#"><i class="icon-star icon-17px"></i></a>
+														<a href="@{Admin.puntuarEncuentroSolicitante(encuentroComoSolicitante.id,5)}"><i class="icon-star icon-17px"></i></a>
+														<a href="@{Admin.puntuarEncuentroSolicitante(encuentroComoSolicitante.id,4)}"><i class="icon-star icon-17px"></i></a>
+														<a href="@{Admin.puntuarEncuentroSolicitante(encuentroComoSolicitante.id,3)}"><i class="icon-star icon-17px"></i></a>
+														<a href="@{Admin.puntuarEncuentroSolicitante(encuentroComoSolicitante.id,2)}"><i class="icon-star icon-17px"></i></a>
+														<a href="@{Admin.puntuarEncuentroSolicitante(encuentroComoSolicitante.id,1)}"><i class="icon-star icon-17px"></i></a>
 													</div>
 											#{/elseif}
 											#{elseif ((encuentroComoSolicitante.estadoInteresado == models.Encuentro.Estado.Votado))}
+                                                    <p>Votaste ${encuentroComoSolicitante.puntuacionExperto}</p>
 									        		<div class="rating">
 														<span><i class="icon-star icon-17px"></i></span>
 														<span><i class="icon-star icon-17px"></i></span>
